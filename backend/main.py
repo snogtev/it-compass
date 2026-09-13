@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 
 from backend.constants import DISTRICTS, GRADES
 
@@ -11,9 +11,9 @@ def get_home_page():
 @app.get('/subjects')
 def get_subjects(grade: str, district: str | None = None):
     if grade not in GRADES:
-        return 'Данного грейда не существует!'
+        raise HTTPException(status_code=400, detail='Данного грейда не существует!')
     if district and district not in DISTRICTS:
-        return 'Данного округа не существует!'
+        raise HTTPException(status_code=400, detail='Данного округа не существует!')
     return {'Грейд': grade,
             'Округ': district
             } 
