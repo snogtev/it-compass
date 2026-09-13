@@ -1,0 +1,1 @@
+GRADES = ['applicant', 'intern', 'junior', 'middle', 'senior']
