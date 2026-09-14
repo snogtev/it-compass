@@ -1,8 +1,11 @@
 from fastapi import FastAPI, HTTPException
 
 from backend.constants import DISTRICTS, GRADES
+from backend.database import create_db_and_tables
 
 app = FastAPI()
+
+create_db_and_tables()
 
 @app.get('/')
 def get_home_page():
@@ -16,4 +19,4 @@ def get_subjects(grade: str, district: str | None = None):
         raise HTTPException(status_code=400, detail='Данного округа не существует!')
     return {'Грейд': grade,
             'Округ': district
-            } 
+            }
