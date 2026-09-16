@@ -1,5 +1,10 @@
 
-from sqlmodel import SQLModel, create_engine
+from sqlmodel import Field, SQLModel, create_engine
+
+
+class Subject(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    name: str = Field(index=True)
 
 sqlite_file_name = 'subjects.db'
 sqlite_url = f'sqlite:///{sqlite_file_name}'
