@@ -2,10 +2,12 @@ from fastapi import FastAPI, HTTPException
 
 from backend.constants import DISTRICTS, GRADES
 from backend.database import create_db_and_tables
+from backend.import_xlsx import import_data
 
 app = FastAPI()
 
 create_db_and_tables()
+import_data()
 
 @app.get('/')
 def get_home_page():
@@ -14,7 +16,7 @@ def get_home_page():
 @app.get('/subjects')
 def get_subjects(grade: str, district: str | None = None):
     if grade not in GRADES:
-        raise HTTPException(status_code=400, detail='Данного грейда не существует!')
+        raise HTTPException(status_code=400, detail='Данного грейда не сущствует!')
     if district and district not in DISTRICTS:
         raise HTTPException(status_code=400, detail='Данного округа не существует!')
     return {'Грейд': grade,

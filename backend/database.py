@@ -1,5 +1,6 @@
-
 from sqlmodel import Field, SQLModel, create_engine
+
+from backend.constants import SQLITE_URL
 
 
 class Subject(SQLModel, table=True):
@@ -11,11 +12,8 @@ class Subject(SQLModel, table=True):
     salary_middle: int
     salary_senior: int
 
-sqlite_file_name = 'subjects.db'
-sqlite_url = f'sqlite:///{sqlite_file_name}'
-
 connect_args = {'check_same_thread': False}
-engine = create_engine(sqlite_url, connect_args=connect_args)
+engine = create_engine(SQLITE_URL, connect_args=connect_args)
 
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
