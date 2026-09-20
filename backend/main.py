@@ -1,13 +1,15 @@
 from fastapi import FastAPI, HTTPException
 
 from backend.constants import DISTRICTS, GRADES
+from backend.data_normalization import create_salary_scores
 from backend.database import create_db_and_tables
-from backend.import_xlsx import import_data
+from scripts.import_xlsx import import_data
 
 app = FastAPI()
 
 create_db_and_tables()
 import_data()
+create_salary_scores()
 
 @app.get('/')
 def get_home_page():
