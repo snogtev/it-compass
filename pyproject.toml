@@ -8,7 +8,10 @@ entrypoint = 'backend.main:app'
 [project]
 name = 'it-compass'
 version = '0.1.0'
-description = 'Add your description here'
+description = '''
+Web app rating Russian subjects for IT specialists by qualification level 
+using objective metrics
+'''
 readme = 'README.md'
 authors = [
     { name = 'snogtev', email = 'stepannogtev2023@gmail.com' }
@@ -17,7 +20,7 @@ requires-python = '>=3.12'
 dependencies = [
     'fastapi[standard]>=0.141.1',
     'pandas>=3.0.5',
-    "scikit-learn>=1.9.1",
+    'scikit-learn>=1.9.1',
     'sqlmodel>=0.0.42',
 ]
 
