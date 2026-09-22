@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+header {
+  padding: 1.5rem 2rem;
+  background: #1a1a2e;
+  color: white;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+header p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 0.3rem;
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 90px);
+}
+
+.map-wrapper {
+  flex: 1;
+  position: relative;
+  background: #e8e8e8;
+  overflow: hidden;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+}
+
+#map:active {
+  cursor: grabbing;
+}
+
+.region {
+  stroke: #fff;
+  stroke-width: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.region:hover {
+  opacity: 0.8;
+  stroke-width: 1.5;
+}
+
+.info-box {
+  position: absolute;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  min-width: 200px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(26, 26, 46, 0.95);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  pointer-events: none; /* чтобы мышка не "застревала" на тултипе */
+  z-index: 100;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.tooltip.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.info-box.hidden {
+  display: none;
+}
+
+.info-box h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.info-box p {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.sidebar {
+  width: 320px;
+  background: white;
+  padding: 1.5rem;
+  overflow-y: auto;
+  border-left: 1px solid #ddd;
+}
+
+.control-group {
+  margin-bottom: 2rem;
+}
+
+.control-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.buttons button {
+  padding: 0.6rem;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.buttons button:hover {
+  border-color: #1a1a2e;
+}
+
+.buttons button.active {
+  background: #1a1a2e;
+  color: white;
+  border-color: #1a1a2e;
+}
+
+.top-list {
+  list-style: none;
+}
+
+.top-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-list li .rank {
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-right: 0.5rem;
+}

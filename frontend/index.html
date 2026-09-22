@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карта регионов РФ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Рейтинг регионов РФ</h1>
+    <p>Выберите регион на карте</p>
+  </header>
+
+  <main class="container">
+    <!-- Карта -->
+    <div id="map-container" class="map-wrapper">
+      <svg id="map"></svg>
+      <div id="tooltip" class="tooltip hidden"></div>
+      <div id="info-box" class="info-box hidden">
+        <h3 id="info-name">Регион</h3>
+        <p id="info-rating">Балл: —</p>
+      </div>
+    </div>
+
+    <!-- Панель управления -->
+    <aside class="sidebar">
+      <div class="control-group">
+        <label>Уровень специалиста:</label>
+        <div class="buttons">
+          <button data-level="abiturient" class="active">Абитуриент</button>
+          <button data-level="junior">Junior</button>
+          <button data-level="middle">Middle</button>
+          <button data-level="senior">Senior</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>Топ-10 регионов</label>
+        <ul id="top-list" class="top-list">
+          <li>Загрузка...</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Подключаем D3.js -->
+  <script src="libs/d3.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
