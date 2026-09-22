@@ -2,7 +2,7 @@
 // 1. НАСТРОЙКИ
 // ============================================================
 
-const GEOJSON_URL = "data/russia_fixed.geojson";
+const GEOJSON_URL = "data/russia.geojson";
 const MOCK_URL = "data/mock-ratings.json";
 
 let MOCK_DATA = {};      // ← сюда загрузим JSON
