@@ -1,8 +1,9 @@
 from fastapi import FastAPI, HTTPException
+from sqlmodel import Session
 
 from backend.constants import DISTRICTS, GRADES
 from backend.data_normalization import create_salary_scores
-from backend.database import create_db_and_tables
+from backend.database import Subject, create_db_and_tables, engine
 from scripts.import_xlsx import import_data
 
 app = FastAPI()
@@ -16,7 +17,7 @@ def get_home_page():
     return {'сообщение': 'Сайт работает!'}
 
 @app.get('/subjects')
-def get_subjects(grade: str, district: str | None = None):
+def get_subjects(grade: str, district: str | None = None,):
     if grade not in GRADES:
         raise HTTPException(status_code=400, detail='Данного грейда не сущствует!')
     if district and district not in DISTRICTS:
@@ -24,3 +25,11 @@ def get_subjects(grade: str, district: str | None = None):
     return {'Грейд': grade,
             'Округ': district
             }
+
+@app.get('/subjects/{id}')
+def get_subject(id: int):
+    with Session(engine) as session:
+        subject = session.get(Subject, id)
+        if not subject:
+                raise HTTPException(status_code=400, detail='Данного субъекта не сущствует!')
+        return subject

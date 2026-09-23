@@ -19,6 +19,3 @@ def create_salary_scores():
 
         session.commit()
         session.refresh(subject)
-
-
-         
