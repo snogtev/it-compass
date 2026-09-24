@@ -1,16 +1,10 @@
 from fastapi import FastAPI, Path
 from sqlmodel import Session, select
 
-from backend.constants import Districts, Grade
-from backend.database import Subject, create_db_and_tables, engine
-from backend.scripts.data_normalization import create_salary_scores
-from backend.scripts.import_xlsx import import_data
+from app.constants import Districts, Grade
+from app.database import Subject, engine
 
 app = FastAPI()
-
-create_db_and_tables()
-import_data()
-create_salary_scores()
 
 @app.get('/')
 def get_home_page():

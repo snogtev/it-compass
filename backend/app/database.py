@@ -1,6 +1,6 @@
 from sqlmodel import Field, SQLModel, create_engine
 
-from backend.constants import SQLITE_URL
+from app.constants import SQLITE_URL
 
 
 class Subject(SQLModel, table=True):

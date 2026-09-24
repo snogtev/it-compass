@@ -1,8 +1,8 @@
 from sklearn.preprocessing import minmax_scale
 from sqlmodel import Session, select
 
-from backend.constants import SALARY_FIELDS
-from backend.database import Subject, engine
+from app.constants import SALARY_FIELDS
+from app.database import Subject, engine
 
 
 def create_salary_scores():

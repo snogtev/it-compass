@@ -1,7 +1,7 @@
 import pandas as pd
 
-from backend.constants import TABLE_URL
-from backend.database import engine
+from app.constants import TABLE_URL
+from app.database import engine
 
 
 def import_data():

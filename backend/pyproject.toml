@@ -1,15 +1,8 @@
-[tool.uv]
-managed = true
-package = false
-
-[tool.fastapi]
-entrypoint = 'backend.main:app'
-
 [project]
-name = 'it-compass'
+name = 'backend'
 version = '0.1.0'
 description = '''
-Web app rating Russian subjects for IT specialists by qualification level 
+Backend for web app rating Russian subjects for IT specialists by qualification level 
 using objective metrics
 '''
 readme = 'README.md'
@@ -28,3 +21,13 @@ dependencies = [
 dev = [
     'ruff>=0.16.7',
 ]
+
+[tool.uv]
+managed = true
+package = false
+
+[tool.fastapi]
+entrypoint = 'backend.main:app'
+
+[tool.ruff.lint.isort]
+known-first-party = ['app', 'scripts']
