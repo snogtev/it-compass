@@ -41,5 +41,5 @@ SALARY_FIELDS = {
     if grade != 'applicant'
 }
 
-TABLE_URL = 'https://docs.google.com/spreadsheets/d/1-E4EgjpA8y6P0-_NZw2QQFV8Kicgf_G11pMzYV15coo/export?gid=0&format=csv'
+TABLE_URL = 'https://docs.google.com/spreadsheets/d/1lIBTPfrnWqKXFGtRRADZOQvK1OPc1kHU6KBLiLMRR1s/export?gid=0&format=csv'
 SQLITE_URL = 'sqlite:///subjects.db'
