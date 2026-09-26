@@ -6,7 +6,9 @@ from app.constants import SQLITE_URL
 class Subject(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     name: str = Field(index=True)
+    name_slug: str = Field(index=True)
     district: str = Field(index=True)
+    district_slug: str = Field(index=True)
     salary_intern: int | None = Field(default=None)
     salary_junior: int | None = Field(default=None)
     salary_middle: int | None = Field(default=None)

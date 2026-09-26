@@ -12,14 +12,14 @@ DISTRICTS = (
 )
 
 class Districts(str, Enum):
-    central = 'Центральный'
-    far_eastern = 'Дальневосточный'
-    north_caucasian = 'Северо-Кавказский'
-    northwestern = 'Северо-Западный '
-    siberian = 'Сибирский'
-    southern = 'Южный'
-    ural = 'Уральский'
-    volga = 'Приволжский '
+    central = 'central'
+    far_eastern = 'far_eastern'
+    north_caucasian = 'north_caucasian'
+    northwestern = 'northwestern'
+    siberian = 'siberian'
+    southern = 'southern'
+    ural = 'ural'
+    volga = 'volga '
 class Grade(str, Enum):
     applicant = 'applicant'
     intern = 'intern'

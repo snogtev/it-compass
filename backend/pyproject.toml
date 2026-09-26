@@ -27,7 +27,7 @@ managed = true
 package = false
 
 [tool.fastapi]
-entrypoint = 'backend.main:app'
+entrypoint = 'app.main:app'
 
 [tool.ruff.lint.isort]
 known-first-party = ['app', 'scripts']

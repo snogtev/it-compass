@@ -14,7 +14,7 @@ def get_home_page():
 def get_subjects(grade: Grade, district: Districts | None = None):
     with Session(engine) as session:
         if district:
-            statement = select(Subject).where(Subject.district == district)
+            statement = select(Subject).where(Subject.district_slug == district)
         else:
             statement = select(Subject.name, Subject.district)
         results = session.exec(statement).all()
