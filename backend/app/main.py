@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Path
+from fastapi import FastAPI
 from sqlmodel import Session, select
 
 from app.constants import Districts, Grade
@@ -22,7 +22,7 @@ def get_subjects(grade: Grade, district: Districts | None = None):
     return results
 
 @app.get('/subjects/{id}')
-def get_subject(id: int = Path(ge=1, le=89)):
+def get_subject(grade: Grade, subject: Subject | None = None):
     with Session(engine) as session:
         subject = session.get(Subject, id)
         return subject
