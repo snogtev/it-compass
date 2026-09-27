@@ -1,8 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Query
 from sqlmodel import Session, select
 
-from app.constants import Districts, Grade
 from app.database import Subject, engine
+from app.schemas import SubjectRequest
 
 app = FastAPI()
 
@@ -11,18 +11,22 @@ def get_home_page():
     return {'сообщение': 'Сайт работает!'}
 
 @app.get('/subjects')
-def get_subjects(grade: Grade, district: Districts | None = None):
+def get_subjects(subject_request: SubjectRequest = Query()):  # noqa: B008
     with Session(engine) as session:
-        if district:
-            statement = select(Subject).where(Subject.district_slug == district)
-        else:
+
+        if subject_request.district:
+            statement = select(Subject).where(Subject.district_slug == subject_request.district)
+
+        elif subject_request.subject:
+            exists_statement = select(Subject).where(Subject.name_slug == subject_request.subject).exists()
+            subject_exists = session.scalar(select(exists_statement))
+            if not subject_exists:
+                raise HTTPException(status_code=400, detail='Субъект не найден!')
+            statement = select(Subject).where(Subject.name_slug == subject_request.subject)
+
+        elif subject_request.district is None and subject_request.subject is None:
             statement = select(Subject.name, Subject.district)
+
         results = session.exec(statement).all()
         results = [{'name': row.name, 'district': row.district} for row in results]     
     return results
-
-@app.get('/subjects/{id}')
-def get_subject(grade: Grade, subject: Subject | None = None):
-    with Session(engine) as session:
-        subject = session.get(Subject, id)
-        return subject
