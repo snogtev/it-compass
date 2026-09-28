@@ -12,13 +12,19 @@
 
 ### Backend
 
-- **Language:** Python
-- **Framework:** FastAPI
-- **Database:** SQLite
-- **ORM & Validation:** SQLModel
-- **Package Manager:** uv
-- **Data Engineering & Processing:** pandas & scikit-learn
-- **Package Manager:** uv
+![Python](https://img.shields.io/badge/language-python-%233670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![FastAPI](https://img.shields.io/badge/framework-fastapi-%23009688.svg?style=for-the-badge&logo=fastapi&logoColor=white)
+![SQLite](https://img.shields.io/badge/database-sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+![SQLModel](https://img.shields.io/badge/orm_%26_validation-sql_model-7e56c2?style=for-the-badge)
+![Pandas](https://img.shields.io/badge/data_engineering-Pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/data_processing-scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![uv](https://img.shields.io/badge/PACKAGE_MANAGER-uv-%23DE5FE9.svg?style=for-the-badge&logo=uv&logoColor=white)
+
+### Frontend
+
+![JavaScript](https://img.shields.io/badge/language-javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/markup-html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/styling-css-%23663399.svg?style=for-the-badge&logo=css&logoColor=white)
 
 ## 🗺️ Roadmap
 
@@ -28,4 +34,6 @@
 - **Subjects Comparison:** Detailed side-by-side comparison of two subjects with an automatically determined winner based on individual metrics.
 - **Subjects Search:** A search input field with real-time highlighting of the selected subjects on the map.
 
-</div>
+## 🪪 License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
