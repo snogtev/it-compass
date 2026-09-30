@@ -20,6 +20,7 @@ def get_subjects(subject_request: SubjectRequest = Query()):  # noqa: B008
         elif subject_request.subject:
             exists_statement = select(Subject).where(Subject.name_slug == subject_request.subject).exists()
             subject_exists = session.scalar(select(exists_statement))
+            
             if not subject_exists:
                 raise HTTPException(status_code=400, detail='Субъект не найден!')
             statement = select(Subject).where(Subject.name_slug == subject_request.subject)
