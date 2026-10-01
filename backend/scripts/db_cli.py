@@ -7,7 +7,7 @@ from scripts.data_normalization import create_salary_scores
 parser = argparse.ArgumentParser(description='Project database management utility')
 subparsers = parser.add_subparsers(dest='command')
 
-subparsers.add_parser('setup', help='Create database and table and load data')
+subparsers.add_parser('setup', help='Create table and load data')
 subparsers.add_parser('clear', help='Clear table data')
 subparsers.add_parser('refresh', help='Refresh table data')
 

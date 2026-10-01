@@ -26,6 +26,16 @@
 ![HTML5](https://img.shields.io/badge/markup-html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/styling-css-%23663399.svg?style=for-the-badge&logo=css&logoColor=white)
 
+## 🗄️ Database commands
+
+**Note:** All commands below must be run from `/backend` directory.
+
+| Command | Description |
+| ------- | ----------- |
+| uv run python -m scripts.db_cli setup | Create database and table and load data |
+| uv run python -m scripts.db_cli clear | Clear table data |
+| uv run python -m scripts.db_cli refres | Refresh table data |
+
 ## 🗺️ Roadmap
 
 - **Interactive Map:** A map of Russia featuring a color gradient (from red to green) and informational infoboxes triggered upon clicking a subjects.
