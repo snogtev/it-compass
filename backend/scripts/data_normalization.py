@@ -8,15 +8,14 @@ from app.models import Subject
 
 def create_salary_scores():
     with Session(engine) as session:
-
+        subjects = session.exec(select(Subject)).all()
+        
         for salary_field, score_field in SALARY_FIELDS.items():
-            statement = select(getattr(Subject, salary_field))
-            results = session.exec(statement)
-            data = results.all()
-            scores = minmax_scale(data, feature_range=(1, 100)).astype(int).tolist()
-            for i, score in enumerate(scores, start=1):
-                subject = session.get(Subject, i)
-                setattr(subject, score_field, score)
+            raw_data = [getattr(i, salary_field) for i in subjects]
+            scores = minmax_scale(raw_data, feature_range=(1, 100)).astype(int).tolist()
+
+            for subject, score in zip(subjects, scores):
+                if score > 0:
+                    setattr(subject, score_field, score)
 
         session.commit()
-        session.refresh(subject)

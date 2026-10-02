@@ -1,8 +1,8 @@
 import argparse
 
 from app.database import create_db_and_tables
-from app.db_ops import clear_table, load_data
 from scripts.data_normalization import create_salary_scores
+from scripts.db_ops import clear_table, load_data
 
 parser = argparse.ArgumentParser(description='Project database management utility')
 subparsers = parser.add_subparsers(dest='command')
@@ -17,8 +17,10 @@ if args.command == 'setup':
     create_db_and_tables()
     load_data()
     create_salary_scores()
+
 elif args.command == 'clear':
     clear_table()
+    
 elif args.command == 'refresh':
     clear_table()
     load_data()

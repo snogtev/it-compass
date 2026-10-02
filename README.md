@@ -34,7 +34,7 @@
 | ------- | ----------- |
 | uv run python -m scripts.db_cli setup | Create database and table and load data |
 | uv run python -m scripts.db_cli clear | Clear table data |
-| uv run python -m scripts.db_cli refres | Refresh table data |
+| uv run python -m scripts.db_cli refresh | Refresh table data |
 
 ## 🗺️ Roadmap
 
