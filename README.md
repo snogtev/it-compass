@@ -26,6 +26,10 @@
 ![HTML5](https://img.shields.io/badge/markup-html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/styling-css-%23663399.svg?style=for-the-badge&logo=css&logoColor=white)
 
+## 📊 Data sources
+
+1. **Names of subjects**: Constitution of the Russian Federation, Article 65.
+
 ## 🗄️ Database commands
 
 **Note:** All commands below must be run from `/backend` directory.
