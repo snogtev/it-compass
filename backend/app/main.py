@@ -21,8 +21,16 @@ def get_subjects(subject_request: SubjectRequest = Query()):  # noqa: B008
             statement = select(Subject).where(Subject.name_slug == subject_request.subject)
 
         elif subject_request.district is None and subject_request.subject is None:
-            statement = select(Subject.name, Subject.district)
+            statement = select(Subject)
 
         results = session.exec(statement).all()
-        results = [{'name': row.name, 'district': row.district} for row in results]     
+        
+        results = {'data':
+                   [{'id': row.id,
+                    'name': row.name,
+                    'district': row.district
+                    }
+                    for row in results]
+                   }        
+             
     return results
