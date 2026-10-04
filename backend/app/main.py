@@ -24,8 +24,9 @@ def get_subjects(subject_request: SubjectRequest = Query()):  # noqa: B008
             statement = select(Subject)
 
         results = session.exec(statement).all()
-        
-        results = {'data':
+
+        results = {
+                   'data':
                    [{'id': row.id,
                     'name': row.name,
                     'district': row.district

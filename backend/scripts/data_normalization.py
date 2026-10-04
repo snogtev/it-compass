@@ -12,7 +12,8 @@ def create_salary_scores():
         
         for salary_field, score_field in SALARY_FIELDS.items():
             raw_data = [getattr(i, salary_field) for i in subjects]
-            scores = minmax_scale(raw_data, feature_range=(1, 100)).astype(int).tolist()
+            scores = minmax_scale(raw_data, feature_range=(1, 100)
+                                  ).astype(int).tolist()
 
             for subject, score in zip(subjects, scores):
                 if score > 0:

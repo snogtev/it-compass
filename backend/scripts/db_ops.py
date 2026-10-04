@@ -7,7 +7,7 @@ from app.models import Subject
 
 
 def load_data():
-    df = pd.read_csv(TABLE_URL, skiprows=[0, 2], na_values='N/A')
+    df = pd.read_csv(TABLE_URL, skiprows=[0, 2], na_values='Нет данных')
 
     df.to_sql(name='subject', con=engine, if_exists='append', index=False)
     

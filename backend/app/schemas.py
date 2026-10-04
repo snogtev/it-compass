@@ -120,5 +120,5 @@ class SubjectRequest(SQLModel):
     @model_validator(mode='after')
     def check_it_benefits(self):
         if self.district is not None and self.subject:
-            raise ValueError('Поиск возможен только по единственному фильтру!')
+            raise ValueError('Поиск возможен только по единственному фильтру.')
         return self

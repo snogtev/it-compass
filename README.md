@@ -29,6 +29,8 @@
 ## 📊 Data sources
 
 1. **Names of subjects**: Constitution of the Russian Federation, Article 65.
+2. **Names of federal districts and their composition**: Decree of the President of the Russian Federation No. 849 of May 13, 2000 "On the Plenipotentiary Representative of the President of the Russian Federation in a Federal District".
+3. **IT specialist salaries:** [IT Specialist Salaries across all IT specializations — Habr Career](https://career.habr.com/salaries)
 
 ## 🗄️ Database commands
 
@@ -36,9 +38,9 @@
 
 | Command | Description |
 | ------- | ----------- |
-| uv run python -m scripts.db_cli setup | Create database and table and load data |
-| uv run python -m scripts.db_cli clear | Clear table data |
-| uv run python -m scripts.db_cli refresh | Refresh table data |
+| `uv run python -m scripts.db_cli setup` | Create database and table and load data |
+| `uv run python -m scripts.db_cli clear` | Clear table data |
+| `uv run python -m scripts.db_cli refresh` | Refresh table data |
 
 ## 🗺️ Roadmap
 
