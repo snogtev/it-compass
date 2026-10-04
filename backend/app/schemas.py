@@ -118,7 +118,18 @@ class SubjectRequest(SQLModel):
     subject: Subject | None = None
 
     @model_validator(mode='after')
-    def check_it_benefits(self):
+    def check_single_filter(self):
         if self.district is not None and self.subject:
             raise ValueError('Поиск возможен только по единственному фильтру.')
+        return self
+    
+class SubjectCompareRequest(SQLModel):
+    grade: Grade
+    first_subject: Subject
+    second_subject: Subject
+
+    @model_validator(mode='after')
+    def check_different_subjects(self):
+        if self.first_subject == self.second_subject:
+            raise ValueError('Сравнение возможно только по разным субъектам.')
         return self
