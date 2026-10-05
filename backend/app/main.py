@@ -6,10 +6,6 @@ from app.schemas import SubjectCompareRequest, SubjectRequest
 
 app = FastAPI()
 
-@app.get('/')
-def get_home_page():
-    return {'сообщение': 'Сайт работает!'}
-
 @app.get('/subjects')
 def get_subjects(subject_request: SubjectRequest = Query()):  # noqa: B008
     with Session(engine) as session:
