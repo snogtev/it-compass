@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Query
 from sqlmodel import Session, or_, select
 
-from app.database import Subject, engine
+from app.database import District, Subject, engine
 from app.enums import Subject as SubjectEnum
 from app.schemas import SubjectCompareRequest, SubjectRequest
 
@@ -12,7 +12,9 @@ def get_subjects(subject_request: SubjectRequest = Query()):  # noqa: B008
     with Session(engine) as session:
 
         if subject_request.district:
-            statement = select(Subject).where(Subject.district_slug == subject_request.district)
+            statement = (select(Subject).join(District)
+                         .where(District.name_slug == subject_request.district)
+                         )
 
         elif subject_request.subject:
             statement = select(Subject).where(Subject.name_slug == subject_request.subject)
@@ -26,6 +28,7 @@ def get_subjects(subject_request: SubjectRequest = Query()):  # noqa: B008
                    'data':
                    [{'id': row.id,
                     'name': row.name,
+                    'name_slug': row.name_slug,
                     'district': row.district
                     }
                     for row in results]
@@ -43,6 +46,7 @@ def get_subject(subject_slug: SubjectEnum):
                    'data':
                    [{'id': row.id,
                     'name': row.name,
+                    'name_slug': row.name_slug,
                     'district': row.district
                     }
                     for row in result]
@@ -61,6 +65,7 @@ def get_subjects_compare(subject_compare_request: SubjectCompareRequest = Query(
                    'data':
                    [{'id': row.id,
                     'name': row.name,
+                    'name_slug': row.name_slug,
                     'district': row.district
                     }
                     for row in results]

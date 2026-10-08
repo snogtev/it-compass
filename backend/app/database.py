@@ -1,7 +1,10 @@
 from sqlmodel import SQLModel, create_engine
 
 from app.constants import SQLITE_URL
-from app.models import Subject  # noqa: F401
+from app.models import (
+    District,  # noqa: F401
+    Subject,  # noqa: F401
+)
 
 connect_args = {'check_same_thread': False}
 engine = create_engine(SQLITE_URL, connect_args=connect_args)
