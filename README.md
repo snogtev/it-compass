@@ -70,6 +70,22 @@ Once the backend is running, the interactive Swagger documentation is available 
 - [ ] Implement the `/subjects/compare` endpoint for comparing two subjects
 - [ ] Implement the `/subjects/rating` endpoint
 
+### Frontend
+
+- [x] Implement interactive map of Russia
+- [x] Add a red-to-green color gradient reflecting each subject's score
+- [x] Add hover tooltips and click-triggered infoboxes with subject details
+- [x] Add zoom and pan with map boundaries
+- [ ] Implement career level switching (`Applicant`, `Intern`, `Junior`, `Middle`, `Senior`) with map recoloring
+- [ ] Implement the Top 10 subjects list for the selected career level
+- [ ] Connect the frontend to the backend (`/subjects/rating`) instead of static data
+- [ ] Implement subjects comparison with the winner determined by metrics
+- [ ] Implement subjects search with real-time highlighting on the map
+- [ ] Add a color legend and "No data" state for subjects without metrics
+- [ ] Add loading and error states for data fetching
+- [ ] Make the layout responsive for tablets and mobile devices
+
+
 ## 🪪 License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
