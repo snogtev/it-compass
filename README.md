@@ -36,7 +36,7 @@
 
 > All commands below must be run from `/backend` directory.
 
-> If you don't have `uv` installed, install it via pip first: `pip install uv`
+> If you don't have `uv` installed, follow the [official installation guide](https://docs.astral.sh/uv/getting-started/installation/).
 
 | Command | Description |
 | ------- | ----------- |
@@ -57,11 +57,18 @@ Once the backend is running, the interactive Swagger documentation is available 
 
 ## 🗺️ Roadmap
 
-- **Interactive Map:** A map of Russia featuring a color gradient (from red to green) and informational infoboxes triggered upon clicking a subjects.
-- **Profile Selection:** Career level switching (`Applicant`, `Intern`, `Junior`, `Middle`, `Senior`) with dynamic metric weight recalculation tailored to specific priorities.
-- **Top 10 Subjects:** A ranked list of the best subjects in the Russian Federation for the selected profile, showing position, name, and total score.
-- **Subjects Comparison:** Detailed side-by-side comparison of two subjects with an automatically determined winner based on individual metrics.
-- **Subjects Search:** A search input field with real-time highlighting of the selected subjects on the map.
+### Backend
+
+- [ ] Define the subject domain
+- [ ] Design the database schema
+- [ ] Devise the rating calculation methodology
+- [ ] Connect SQLite as the storage layer
+- [ ] Set up ORM and validation via SQLModel
+- [ ] Write a CLI script for database management (`setup`, `clear`, `refresh`)
+- [ ] Implement the `/subjects` endpoint with filtering by district and subject
+- [ ] Implement the `/subjects/{subject_slug}` endpoint
+- [ ] Implement the `/subjects/compare` endpoint for comparing two subjects
+- [ ] Implement the `/subjects/rating` endpoint
 
 ## 🪪 License
 
