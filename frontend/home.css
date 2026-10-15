@@ -1,0 +1,34 @@
+.page-home { background: #fff; display: flex; flex-direction: column; min-height: 100vh; }
+.hero {
+  flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 4.5rem 1.5rem 3.5rem; position: relative;
+}
+.hero::before { /* точечная «карта» на фоне */
+  content: ""; position: absolute; right: 0; top: 1rem; width: 60%; height: 340px; z-index: 0;
+  background: radial-gradient(circle, #cfd8e6 1.6px, transparent 2px) 0 0 / 11px 11px;
+  -webkit-mask: radial-gradient(ellipse at 60% 45%, #000 25%, transparent 68%);
+  mask: radial-gradient(ellipse at 60% 45%, #000 25%, transparent 68%);
+}
+.hero > * { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(2.2rem, 5.2vw, 4rem); line-height: 1.08; letter-spacing: -.03em; max-width: 14ch; }
+.hero h1 em { font-style: normal; color: var(--blue); }
+.hero > p { margin: 1.2rem 0 2.8rem; font-size: 1.15rem; color: var(--muted); max-width: 46ch; }
+
+.levels { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.1rem; }
+.level {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: .6rem;
+  padding: 1.6rem 1.1rem 1.3rem; border-radius: 18px; color: #fff; text-decoration: none;
+  box-shadow: 0 10px 24px rgba(15,23,42,.14); transition: transform .2s, box-shadow .2s;
+}
+.level:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(15,23,42,.2); }
+.level .ico { width: 64px; height: 64px; display: grid; place-items: center; font-size: 1.9rem; border-radius: 50%; background: rgba(255,255,255,.2); }
+.level h2 { font-size: 1.3rem; }
+.level p { font-size: .9rem; opacity: .92; line-height: 1.4; flex: 1; }
+.level b { margin-top: .6rem; width: 100%; padding: .7rem; border-radius: 10px; background: #fff; font-size: .95rem; }
+.l-applicant { background: linear-gradient(160deg, #2fd1a5, #0fa57f); } .l-applicant b { color: #0fa57f; }
+.l-intern    { background: linear-gradient(160deg, #38c6e8, #1596c4); } .l-intern b { color: #1596c4; }
+.l-junior    { background: linear-gradient(160deg, #4c8dff, #2563eb); } .l-junior b { color: #2563eb; }
+.l-middle    { background: linear-gradient(160deg, #9b6cf5, #7c3aed); } .l-middle b { color: #7c3aed; }
+.l-senior    { background: linear-gradient(160deg, #ffb42e, #f59300); } .l-senior b { color: #d97f00; }
+
+@media (max-width: 1000px) { .levels { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px)  { .levels { grid-template-columns: 1fr; } }

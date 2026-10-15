@@ -3,49 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Карта регионов РФ</title>
+  <title>IT Compass — выбери регион для IT-карьеры</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
 </head>
-<body>
-  <header>
-    <h1>Рейтинг регионов РФ</h1>
-    <p>Выберите регион на карте</p>
+<body class="page-home">
+  <header class="site-header light">
+    <a class="brand" href="index.html"><img src="icon.svg" alt="" class="logo"><span>IT Compass<small>рейтинг регионов для IT-специалистов</small></span></a>
+    <a class="btn btn-outline" href="map.html">Открыть карту</a>
   </header>
 
-  <main class="container">
-    <!-- Карта -->
-    <div id="map-container" class="map-wrapper">
-      <svg id="map"></svg>
-      <div id="tooltip" class="tooltip hidden"></div>
-      <div id="info-box" class="info-box hidden">
-        <h3 id="info-name">Регион</h3>
-        <p id="info-rating">Балл: —</p>
-      </div>
+  <main class="hero">
+    <h1>Выбери свой регион для <em>IT</em>-карьеры</h1>
+    <p>Рейтинг 89 регионов РФ по зарплатам IT-специалистов — отдельно для каждого уровня</p>
+
+    <div class="levels">
+      <a class="level l-applicant" href="map.html?level=applicant"><span class="ico">🎓</span><h2>Applicant</h2><p>Выбор региона для учёбы и старта</p><b>Выбрать</b></a>
+      <a class="level l-intern" href="map.html?level=intern"><span class="ico">🌱</span><h2>Intern</h2><p>Где найти первую стажировку</p><b>Выбрать</b></a>
+      <a class="level l-junior" href="map.html?level=junior"><span class="ico">💻</span><h2>Junior</h2><p>Лучшие регионы для старта карьеры</p><b>Выбрать</b></a>
+      <a class="level l-middle" href="map.html?level=middle"><span class="ico">🚀</span><h2>Middle</h2><p>Где развиваться и расти</p><b>Выбрать</b></a>
+      <a class="level l-senior" href="map.html?level=senior"><span class="ico">🏆</span><h2>Senior</h2><p>Регионы с лучшими возможностями для лидеров</p><b>Выбрать</b></a>
     </div>
-
-    <!-- Панель управления -->
-    <aside class="sidebar">
-      <div class="control-group">
-        <label>Уровень специалиста:</label>
-        <div class="buttons">
-          <button data-level="abiturient" class="active">Абитуриент</button>
-          <button data-level="junior">Junior</button>
-          <button data-level="middle">Middle</button>
-          <button data-level="senior">Senior</button>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <label>Топ-10 регионов</label>
-        <ul id="top-list" class="top-list">
-          <li>Загрузка...</li>
-        </ul>
-      </div>
-    </aside>
   </main>
 
-  <!-- Подключаем D3.js -->
-  <script src="libs/d3.min.js"></script>
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    <span>Данные о зарплатах: <a href="https://career.habr.com/salaries" target="_blank" rel="noopener">Хабр Карьера</a></span>
+    <span>IT Compass · проект в разработке</span>
+  </footer>
 </body>
 </html>

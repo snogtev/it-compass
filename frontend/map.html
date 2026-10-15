@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карта регионов — IT Compass</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-map">
+  <header class="site-header light">
+    <a class="brand" href="index.html"><img src="icon.svg" alt="" class="logo"><span>IT-Рейтинг регионов</span></a>
+    <div class="buttons" role="group" aria-label="Уровень специалиста">
+      <button data-level="applicant">Applicant</button>
+      <button data-level="intern">Intern</button>
+      <button data-level="junior">Junior</button>
+      <button data-level="middle" class="active">Middle</button>
+      <button data-level="senior">Senior</button>
+    </div>
+    <a class="btn btn-outline" href="index.html">На главную</a>
+  </header>
+
+  <main class="container">
+    <div id="map-container" class="map-wrapper">
+      <svg id="map" role="img" aria-label="Карта регионов России"></svg>
+
+      <div class="map-tools">
+        <label class="select-label">Федеральный округ
+          <select id="district-select"><option value="">Все округа</option></select>
+        </label>
+        <div class="zoom-btns">
+          <button id="zoom-in" aria-label="Приблизить">+</button>
+          <button id="zoom-out" aria-label="Отдалить">−</button>
+          <button id="zoom-reset" aria-label="Сбросить масштаб">⌖</button>
+        </div>
+      </div>
+
+      <div id="tooltip" class="tooltip hidden"></div>
+      <div id="info-box" class="info-box hidden">
+        <h3 id="info-name">Регион</h3>
+        <div id="info-body"></div>
+      </div>
+
+      <div class="legend" aria-hidden="true">
+        <span>Низкий рейтинг</span>
+        <span class="swatches"><i style="background:#e74c3c"></i><i style="background:#ee7a3a"></i><i style="background:#f4a62f"></i><i style="background:#f1c40f"></i><i style="background:#c8d73f"></i><i style="background:#9fd24b"></i><i style="background:#6fcc5f"></i><i style="background:#2ecc71"></i></span>
+        <span>Высокий</span>
+        <em><b></b>Нет данных</em>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <h2>Топ-10 регионов</h2>
+      <ol id="top-list" class="top-list"><li>Загрузка…</li></ol>
+    </aside>
+  </main>
+
+  <footer class="stats">
+    <div><b>89</b> регионов в рейтинге</div>
+    <div><b>5</b> уровней специалистов</div>
+    <div>Источник зарплат <b><a href="https://career.habr.com/salaries" target="_blank" rel="noopener">Хабр Карьера</a></b></div>
+    <a href="index.html">О проекте</a>
+  </footer>
+
+  <script src="libs/d3.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
