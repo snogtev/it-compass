@@ -49,7 +49,7 @@
 Once the backend is running, the interactive Swagger documentation is available at `http://localhost:8000/docs`.
 
 | Method | Endpoint | Description | Query Parameters | Validation & Constraints |
-| :--- | :--- | :--- | :--- | :--- |
+| :----- | :------- | :---------- | :--------------- | :----------------------- |
 | `GET` | `/subjects` | Returns a list of subjects filtered by federal district or specific subject, or all subjects of Russia. | • `grade` (Grade, **required**)<br>• `district` (District, optional)<br>• `subject` (Subject, optional) | **Simultaneous filtering is blocked.** Providing both `district` and `subject` at the same time will trigger a validation error. |
 | `GET` | `/subjects/compare` | Returns metrics for two specific subjects side-by-side for comparison. | • `grade` (Grade, **required**)<br>• `first_subject` (Subject, **required**)<br>• `second_subject` (Subject, **required**) | **Comparing a subject to itself is blocked.** `first_subject` and `second_subject` must be distinct, otherwise a validation error is thrown. |
 
