@@ -59,7 +59,7 @@ Once the backend is running, the interactive Swagger documentation is available 
 
 ### Backend
 
-- [ ] Define the subject domain
+- [x] Define the subject domain
 - [ ] Design the database schema
 - [ ] Devise the rating calculation methodology
 - [ ] Connect SQLite as the storage layer
