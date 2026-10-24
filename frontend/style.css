@@ -1,20 +1,163 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     background-color: #08132E;
+    color: white;
 }
+
 
 h1 {
     text-align: center;
-    color: white;
+    font-weight: 400;
+    font-size: 36px;
+    padding-top: 30px;
 }
-a {
+
+h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 22px;
+    margin-top: 40px;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+.project-info {
+    position: absolute;   
+    top: 15px;
+    left: 15px;
+    display: flex;        
+    align-items: center;  
+    gap: 8px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.project-info a {
     color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+
+main {
+    margin-top: 80px;
+}
+
+.cards {
+    display: flex;              
+    justify-content: center;    
+    gap: 15px;                 
+}
+
+.card {
+    width: 160px;
+    height: 200px;
+    border-radius: 24px;
+    padding: 20px 12px 14px;
+    display: flex;
+    flex-direction: column;     
+    align-items: center;
+    text-align: center;
+}
+
+.icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 3px;
+}
+
+
+.card h3 {
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+.card p {
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.card a {
+    margin-top: auto;           
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 22px;
+    font-size: 11px;
+    font-family: inherit;       
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.green
+{
+    background-color: #0BC7A1;
+}
+
+.red
+{
+    background-color: #FF5558;
+}
+
+.blue
+{
+    background-color: #5BA4FF; 
+}
+
+.purple
+{ 
+    background-color: #9B5CFF; 
+}
+
+.orange
+{ 
+    background-color: #EBA14A;
+}
+
+
+.green a
+{ 
+    color: #0FC9A5;
+}
+
+.red a
+{
+    color: #FF5558; 
+}
+
+.blue a
+{ 
+    color: #5BA4FF; 
+}
+
+.purple a
+{ 
+    color: #9B5CFF; 
+}
+
+.orange a
+{ 
+    color: #EBA14A; 
 }
