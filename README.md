@@ -72,18 +72,17 @@ Once the backend is running, the interactive Swagger documentation is available 
 
 ### Frontend
 
-- [x] Implement interactive map of Russia
-- [x] Add a red-to-green color gradient reflecting each subject's score
-- [x] Add hover tooltips and click-triggered infoboxes with subject details
-- [x] Add zoom and pan with map boundaries
-- [ ] Implement career level switching (`Applicant`, `Intern`, `Junior`, `Middle`, `Senior`) with map recoloring
-- [ ] Implement the Top 10 subjects list for the selected career level
-- [ ] Connect the frontend to the backend (`/subjects/rating`) instead of static data
-- [ ] Implement subjects comparison with the winner determined by metrics
-- [ ] Implement subjects search with real-time highlighting on the map
-- [ ] Add a color legend and "No data" state for subjects without metrics
-- [ ] Add loading and error states for data fetching
-- [ ] Make the layout responsive for tablets and mobile devices
+- [x] Make IT-Compass homepage HTML document
+- [x] Design IT-Compass homepage using CSS
+- [x] Create IT-Compass map page HTML document
+- [x] Add side panel to map page HTML
+- [x] Design map page side panel using CSS
+- [ ] Integrate interactive map of Russia using geojson d3 javascript library
+- [ ] Design interactive map of Russia using CSS
+- [ ] Create region info page HTML document
+- [ ] Design region info page using HTML
+- [ ] Implement region comparsion page HTML document
+- [ ] Design region comparsion page using CSS
 
 
 ## 🪪 License
