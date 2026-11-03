@@ -79,6 +79,7 @@ Once the backend is running, the interactive Swagger documentation is available 
 - [x] Design map page side panel using CSS
 - [ ] Integrate interactive map of Russia using geojson d3 javascript library
 - [ ] Design interactive map of Russia using CSS
+- [ ] Setup interaction with map using javascript
 - [ ] Create region info page HTML document
 - [ ] Design region info page using HTML
 - [ ] Implement region comparsion page HTML document
