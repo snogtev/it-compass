@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@400&display=swap');
+
+
+/*осн. настройки*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cuprum', sans-serif;
+    font-weight: 400;
+    background-color: #08132E;
+    color: white;
+    height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    min-width: 240px;
+    padding: 16px 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    overflow-y: auto;          
+}
+
+
+/*поисковая строка*/
+
+.search-bar
+{
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 15px;
+    color: white;
+}
+
+.search-icon
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.divider {
+    width: 1px;                 
+    height: 28px;               
+    background-color: white;
+    margin-left: auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 5px 8px;
+    color: white;
+    font-size: 13px;
+    border: none;
+    outline: none;
+    flex: 1;
+    background-color: transparent;
+}
+
+
+/*выбор it грейдов*/
+
+.level-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 20px;
+}
+
+.levels {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 5px;
+    overflow: hidden;          
+}
+
+.levels button {
+    padding: 3px 13px;
+    font-size: 13px;
+}
+button {
+    background-color: #08132E;
+    color: white;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1A2A5C;
+}
+
+button:active {
+    background-color: #4169CF;
+}
+
+
+/*топ 10 регионов*/
+
+.top-regions-box {
+    border: 1px solid #8FA3D6;
+    border-radius: 13px;
+    padding: 8px 13px;
+}
+
+.top-regions-box p {
+    text-align: center;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.top-regions-box ul {
+    list-style: none;
+}
+
+.top-regions-box li {
+    height: 17px;                           
+    border-bottom: 1px solid #2A4A9C;
+    margin-bottom: 8px;
+}
+
+
+/*градиенты*/
+
+.legend-boxes {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+}
+ 
+.legend-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   
+    margin-left: 100px;
+}
+ 
+.legend-colors {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+ 
+.legend-colors div {
+    width: 18px;
+    height: 18px;
+}
+
+
+/*цвета*/
+
+.c1 
+{   
+    background-color: #0AC200; 
+}
+.c2 
+{   
+    background-color: #44FF00; 
+}
+.c3 
+{   
+    background-color: #9DFF00; 
+}
+.c4 
+{   
+    background-color: #FFEA00; 
+}
+.c5 
+{   
+    background-color: #FFA600; 
+}
+.c6 
+{   
+    background-color: #FF5900; 
+}
+.c7 
+{
+    background-color: #FF0000; 
+}
+ 
+
+.compare-btn {
+    text-align: center;
+    margin-top: auto;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+}
+
+.exit-btn {
+    position: absolute;
+    top: 11px;
+    right: 11px;
+    background-color: #08132E;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 6px;
+}
+
+
+/*карта*/
+
+.map-area {
+    flex: 1;                    
+    position: relative;
+    background-color: white;
+}

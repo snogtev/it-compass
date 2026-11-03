@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <title>Map</title>
+</head>
+<body>
+
+    <aside class="sidebar"> <!--тег предназначенный для боковых панелей, тут будет реализована боковая панель-->
+       
+        <div class="search-bar">
+        <img src="imgs/search-icon.svg" class="search-icon" alt="search">
+        <span class="divider"></span>
+        <input type="text" class="search-input" placeholder="Поиск региона">
+        </div>
+
+        <!--пока что просто список, если будет нужно то сделаю dropdown список через js -->
+        <div class="level-select">
+            <p>Выбор уровня:</p>
+            <div class="levels">
+                <button>Абитуриент</button>
+                <button>Стажёр</button>
+                <button>Junior</button>
+                <button>Middle</button>
+                <button>Senior</button>
+            </div>
+        </div>
+
+        <div class="top-regions-box">
+            <p>Топ 10 лучших регионов</p>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <div class="legend-boxes">
+            <div class="legend-labels">
+                <span>Высокий рейтинг</span>
+                <span>Низкий рейтинг</span>
+            </div>
+            <div class="legend-colors">
+                <div class="c1"></div>
+                <div class="c2"></div>
+                <div class="c3"></div>
+                <div class="c4"></div>
+                <div class="c5"></div>
+                <div class="c6"></div>
+                <div class="c7"></div>
+            </div>
+        </div>
+ 
+        <a class="compare-btn" href="#">Сравнение регионов</a>
+
+    </aside>
+
+    <main class="map-area"> <!--viewport карты будет реализован тут в main-->
+        <a href="../homepage/index.html" class="exit-btn">Выйти на главную страницу</a>
+    </main>
+</body>
+</html>
