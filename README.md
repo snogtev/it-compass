@@ -81,7 +81,7 @@ Once the backend is running, the interactive Swagger documentation is available 
 - [ ] Design interactive map of Russia using CSS
 - [ ] Setup interaction with map using javascript
 - [ ] Create region info page HTML document
-- [ ] Design region info page using HTML
+- [ ] Design region info page using CSS
 - [ ] Implement region comparsion page HTML document
 - [ ] Design region comparsion page using CSS
 
