@@ -47,3 +47,35 @@
 | | Количество солнечных дней в году | ↑ | Нет | [relocat](https://relocat.io/reytingi/solnechnye/) |
 | **Социально-демографические** | Количество преступлений на 10 тыс. населения | ↓ | Нет | [РИА Рейтинг](https://riarating.ru/infografika/20260119/630291420.html) |
 | | Естественный прирост/убыль населения на тыс. населения | ↓ | Нет | [Росстат](https://rosstat.gov.ru/compendium/document/13269) |
+
+## Масштабирование признаков
+
+Для масштабирования признаков используется линейный метод — **Min-Max нормализация**.
+
+1. В зависимости от направления метрики базовая формула (приведение к стандартному диапазону [0, 1]) принимает вид:
+
+**Прямая метрика**:
+
+```math
+\text{normalized\_score} = \frac{\text{raw\_value} - \text{raw\_value}_{\min}}{\text{raw\_value}_{\max} - \text{raw\_value}_{\min}}
+```
+
+**Обратная метрика**:
+
+```math
+\text{normalized\_score} = \frac{\text{raw\_value}_{\max} - \text{raw\_value}}{\text{raw\_value}_{\max} - \text{raw\_value}_{\min}}
+```
+
+2. Для приведения исходного набора значений к целевому диапазону [1, 100] формула видоизменяется следующим образом:
+
+**Прямая метрика**:
+
+```math
+\text{normalized\_score} = 1 + \frac{\text{raw\_value} - \text{raw\_value}_{\min}}{\text{raw\_value}_{\max} - \text{raw\_value}_{\min}} \cdot 99
+```
+
+**Обратная метрика**:
+
+```math
+\text{normalized\_score} = 1 + \frac{\text{raw\_value}_{\max} - \text{raw\_value}}{\text{raw\_value}_{\max} - \text{raw\_value}_{\min}} \cdot 99
+```
