@@ -67,6 +67,23 @@
 
     <main class="map-area"> <!--viewport карты будет реализован тут в main-->
         <a href="../homepage/index.html" class="exit-btn">Выйти на главную страницу</a>
+
+        <!--окно отрисовки карты 1000x700-->
+        <svg id="map" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet"></svg>
+ 
+        <!-- popup окно региона-->
+        <div class="popup" id="popup">
+            <h3 id="popup-name">Название региона</h3>
+            <p id="popup-count">кол-во учреждений: -</p>
+            <p id="popup-info">характеристики региона</p>
+            <button class="details-btn">Подробности ⌄</button>
+        </div>
+    </main>
+ 
+    <!--подгрузка js скриптов-->
+    <script src="../data/libs/d3.min.js"></script>
+    <script src="script.js"></script>
+
     </main>
 </body>
 </html>
