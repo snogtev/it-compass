@@ -1,15 +1,17 @@
-# IT Compass — Спецификация проекта
+# IT Compass — Спецификация
 
 ## Общая информация
 
 * **Тип разработки:** Greenfield
 * **Состояние проекта:** Частичная реализация
 * **Автор документа:** Степан Ногтев
-* **Связанные документы:** [`scoring-methodology.md`](./scoring-methodology.md) — методология отбора метрик и настройки весов
+* **Связанные документы:**
+* [`GLOSSARY.md`](./GLOSSARY.md) — глоссарий
+* [`scoring-methodology.md`](./scoring-methodology.md) — методология скоринга
 
 ## Краткое описание
 
-Веб-приложение для расчёта рейтинга российских регионов для ИТ-специалистов с учётом их квалификации на основе объективных метрик. Помогает ИТ-специалистам выбрать регион для жизни и работы.
+Веб-приложение для расчёта рейтинга российских регионов для ИТ-специалистов с учётом их грейда на основе объективных метрик. Помогает ИТ-специалистам выбрать регион для жизни и работы.
 
 ## Анализ предметной области
 
@@ -20,7 +22,7 @@
 
 ### Цели проекта
 
-* **Ценностное предложение:** Прозрачный рейтинг регионов на основе измеримых метрик, персонализированный по уровню квалификации.
+* **Ценностное предложение:** Прозрачный рейтинг регионов на основе измеримых метрик, персонализированный по грейду.
 * **Бизнес-цель:** Отсутствует — учебный проект.
 
 ### Целевая аудитория
@@ -40,16 +42,16 @@
 | Подсистема | За что отвечает | Ключевые понятия |
 | :--------- | :-------------- | :--------------- |
 | Источники данных | Сбор и проверка метрик | `regions`, `raw_metric_records`, `metrics` |
-| Рейтинг регионов | Нормализация данных, расчёт баллов и отображение на сайте | `regions`, `metrics`, `grades`, `formulas`, `clean_metric_records`, `region_ratings` |
+| Рейтинг регионов | Нормализация сырых записей метрик, расчёт рейтинга регионов и отображение на сайте | `regions`, `metrics`, `grades`, `weights`, `normalized_metric_records`, `region_ratings` |
 
 ### Ключевые рабочие процессы
 
 | Процесс | Что запускает | Основные шаги |
 | :------ | :------------ | :------------ |
-| **1. Импорт сырых данных** | Консольная программа (Этап 1) | **1.** Полностью очистить старые записи в таблице `raw_metric_records`, если таковые имеются → **2.** Скачать CSV-версию Google Таблицы с сырыми данными по ссылке → **3.** Считать строки из файла и сохранить в таблицу `raw_metric_records`. |
-| **2. Валидация и нормализация** | Консольная программа (Этап 2, автоматически после Этапа 1) | **1.** Считать все сырые данные из `raw_metric_records` → **2.** Проверить названия регионов и метрик по справочникам `regions` и `metrics` и отсечь строки со значением «Нет данных» → **3.** Конвертировать метрики в числа и нормализовать их в баллы от 1.0 до 100.0 → **4.** Записать результат в таблицу `clean_metric_records`. |
-| **3. Расчёт итогового рейтинга** | Консольная программа (Этап 3, автоматически после Этапа 2) | **1.** Считать нормализованные баллы из `clean_metric_records` → **2.** Рассчитать общий балл по каждому региону на основе весовых коэффициентов из таблицы `formulas` → **3.** Сохранить финальный результат в таблицу `region_ratings`. |
-| **4. Просмотр рейтинга с фильтрацией** | Открытие сайта | **1.** Выбрать грейд из `grades` (обязательно) → **2.** Настроить фильтр (опционально): выбрать один федеральный округ из `districts` ИЛИ выбрать один конкретный регион из `regions` (если ничего не выбрано — выводятся все регионы России) → **3.** Получить из БД отфильтрованные данные из `region_ratings` → **4.** Отобразить данные на сайте. |
+| **1. Импорт сырых записей метрик** | Консольная программа (Этап 1) | **1.** Полностью очистить старые записи в таблице `raw_metric_records`, если таковые имеются → **2.** Скачать CSV-версию Google Таблицы с сырыми данными по ссылке → **3.** Считать строки из файла и сохранить в таблицу `raw_metric_records`. |
+| **2. Валидация и нормализация** | Консольная программа (Этап 2, автоматически после Этапа 1) | **1.** Считать все сырые записи метрик из `raw_metric_records` → **2.** Проверить названия регионов и метрик по справочникам `regions` и `metrics` и отсечь строки со значением «Нет данных» → **3.** Конвертировать сырые записи метрик в числа и нормализовать их в баллы от 1.0 до 100.0 → **4.** Записать результат в таблицу `normalized_metric_records`. |
+| **3. Расчёт итогового рейтинга** | Консольная программа (Этап 3, автоматически после Этапа 2) | **1.** Считать нормализованные записи метрик из `normalized_metric_records` → **2.** Рассчитать итоговый рейтинг для каждого региона на основе весов из таблицы `weights` → **3.** Сохранить финальный результат в таблицу `region_ratings`. |
+| **4. Просмотр рейтинга с фильтрацией** | Открытие сайта | **1.** Выбрать грейд из `grades` (обязательно) → **2.** Получить из БД рейтинг регионов из `region_ratings` → **3.** Отобразить данные на сайте. |
 
 ## Проектирование базы данных (Концептуальный и логический этапы)
 
@@ -59,20 +61,11 @@
 
 #### Справочные сущности
 
-##### Федеральные округа (districts)
-
-| Поле | Тип данных | Ограничения | Описание |
-| :--- | :--------- | :---------- | :------- |
-| `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
-| `name` | text | NOT NULL, UNIQUE | Название федерального округа |
-| `slug` | text | NOT NULL, UNIQUE | Человекопонятный URL |
-
 ##### Регионы (regions)
 
 | Поле | Тип данных | Ограничения | Описание |
 | :--- | :--------- | :---------- | :------- |
 | `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
-| `district_id` | integer | FK, NOT NULL | ID федерального округа из сущности `districts` |
 | `name` | text | NOT NULL, UNIQUE | Название региона |
 | `slug` | text | NOT NULL, UNIQUE | Человекопонятный URL |
 
@@ -83,6 +76,7 @@
 | `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
 | `name` | text | NOT NULL, UNIQUE | Название метрики |
 | `is_graded` | boolean | NOT NULL | Разделяется ли метрика по грейдам |
+| `direction` | direction (ENUM) | NOT NULL | Направление метрики (`forward`, `backward`) |
 
 ##### Грейды (grades)
 
@@ -104,16 +98,16 @@
 | `raw_grade_name` | text | NULL | Название грейда из CSV |
 | `raw_value` | text | NULL | Значение метрики из CSV |
 
-##### Очищенные записи метрик (clean_metric_records)
+##### Нормализованные записи метрик (normalized_metric_records)
 
 | Поле | Тип данных | Ограничения | Описание |
 | :--- | :--------- | :---------- | :--- |
 | `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
 | `region_id` | integer | FK, NOT NULL | ID региона из сущности `regions` |
 | `metric_id` | integer | FK, NOT NULL | ID метрики из сущности `metrics` |
-| `grade_id` | integer | FK, NULL | ID грейда из сущности `grades` (пусто для общих метрик) |
-| `value` | numeric(10,1) | NOT NULL | Валидированное числовое значение (один знак после точки) |
-| `normalized_score` | numeric(4,1) | NOT NULL, CHECK (normalized_score >= 1.0 AND normalized_score <= 100.0) | Нормализованный балл региона (от 1.0 до 100.0) |
+| `grade_id` | integer | FK, NULL | ID грейда из сущности `grades` |
+| `value` | numeric(10,1) | NOT NULL | Валидированное числовое значение |
+| `normalized_score` | numeric(4,1) | NOT NULL, CHECK (normalized_score >= 1.0 AND normalized_score <= 100.0) | Нормализованная запись метрики |
 
 * **Ограничение таблицы:** UNIQUE (`region_id`, `metric_id`, `grade_id`).
 
@@ -124,20 +118,20 @@
 | `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
 | `region_id` | integer | FK, NOT NULL | Связь со справочником `regions` |
 | `grade_id` | integer | FK, NOT NULL | Связь со справочником `grades` |
-| `total_score` | numeric(4,1) | NOT NULL, CHECK (total_score >= 1.0 AND total_score <= 100.0) | Общий балл региона для конкретного грейда (один знак после точки) |
+| `total_score` | numeric(4,1) | NOT NULL, CHECK (total_score >= 1.0 AND total_score <= 100.0) | Итоговый рейтинг региона для конкретного грейда |
 
 * **Ограничение таблицы:** UNIQUE (`region_id`, `grade_id`).
 
 #### Конфигурационные сущности
 
-##### Формулы (formulas)
+##### Веса (weights)
 
 | Поле | Тип данных | Ограничения | Описание |
 | :--- | :--------- | :---------- | :--- |
 | `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
 | `grade_id` | integer | FK, NOT NULL | ID грейда из сущности `grades` |
 | `metric_id` | integer | FK, NOT NULL | ID метрики из сущности `metrics` |
-| `weight` | numeric(2,1) | NOT NULL, CHECK (weight >= 0.0 AND weight <= 1.0) | Вес метрики (от 0.0 до 1.0, один знак после точки) |
+| `weight` | numeric(3,2) | NOT NULL, CHECK (weight >= 0.00 AND weight <= 1.00) | Вес метрики |
 
 * **Ограничение таблицы:** UNIQUE (`grade_id`, `metric_id`).
 
@@ -145,24 +139,16 @@
 
 ```mermaid
 erDiagram
-    districts ||--o{ regions : "содержит"
-    regions ||--o{ clean_metric_records : "имеет"
-    metrics ||--o{ clean_metric_records : "находится в"
-    grades |o--o{ clean_metric_records : "уточняет"
+    regions ||--o{ normalized_metric_records : "имеет"
+    metrics ||--o{ normalized_metric_records : "находится в"
+    grades |o--o{ normalized_metric_records : "уточняет"
     regions ||--o{ region_ratings : "имеет"
-    grades ||--o{ region_ratings : "корректирует"
-    grades ||--o{ formulas : "корректирует"
-    metrics ||--o{ formulas : "используется в"
-
-    districts {
-        integer id PK "IDENTITY"
-        text name "NOT NULL, UNIQUE"
-        text slug "NOT NULL, UNIQUE"
-    }
+    grades ||--o{ region_ratings : "определяет"
+    grades ||--o{ weights : "корректирует"
+    metrics ||--o{ weights : "используется в"
 
     regions {
         integer id PK "IDENTITY"
-        integer district_id FK "NOT NULL"
         text name "NOT NULL, UNIQUE"
         text slug "NOT NULL, UNIQUE"
     }
@@ -171,6 +157,7 @@ erDiagram
         integer id PK "IDENTITY"
         text name "NOT NULL, UNIQUE"
         boolean is_graded "NOT NULL"
+        direction direction "NOT NULL"
     }
 
     grades {
@@ -187,7 +174,7 @@ erDiagram
         text raw_value "NULL"
     }
 
-    clean_metric_records {
+    normalized_metric_records {
         integer id PK "IDENTITY"
         integer region_id FK "NOT NULL"
         integer metric_id FK "NOT NULL"
@@ -203,11 +190,11 @@ erDiagram
         numeric_4_1 total_score "NOT NULL, CHECK 1.0..100.0"
     }
 
-    formulas {
+    weights {
         integer id PK "IDENTITY"
         integer grade_id FK "NOT NULL"
         integer metric_id FK "NOT NULL"
-        numeric_2_1 weight "NOT NULL, CHECK 0.0..1.0"
+        numeric_3_2 weight "NOT NULL, CHECK 0.0..1.0"
     }
 ```
 
