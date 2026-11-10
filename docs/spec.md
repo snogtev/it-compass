@@ -118,7 +118,7 @@
 | `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
 | `region_id` | integer | FK, NOT NULL | Связь со справочником `regions` |
 | `grade_id` | integer | FK, NOT NULL | Связь со справочником `grades` |
-| `total_score` | numeric(4,1) | NOT NULL, CHECK (total_score >= 1.0 AND total_score <= 100.0) | Итоговый рейтинг региона для конкретного грейда |
+| `total_score` | integer | NOT NULL, CHECK (total_score >= 1 AND total_score <= 100) | Итоговый рейтинг региона для конкретного грейда |
 
 * **Ограничение таблицы:** UNIQUE (`region_id`, `grade_id`).
 
@@ -187,7 +187,7 @@ erDiagram
         integer id PK "IDENTITY"
         integer region_id FK "NOT NULL"
         integer grade_id FK "NOT NULL"
-        numeric_4_1 total_score "NOT NULL, CHECK 1.0..100.0"
+        integer total_score "NOT NULL, CHECK 1..100"
     }
 
     weights {
