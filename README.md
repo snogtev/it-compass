@@ -59,9 +59,9 @@ Once the backend is running, the interactive Swagger documentation is available 
 
 ### Backend
 
-- [x] Define and analyze the subject domain
-- [x] Design the database
-- [ ] Devise the rating calculation methodology
+- [x] Define and analyze subject domain
+- [x] Design database schema
+- [x] Devise scoring methodology
 - [ ] Connect SQLite as the storage layer
 - [ ] Set up ORM and validation via SQLModel
 - [ ] Write a CLI script for database management (`setup`, `clear`, `refresh`)

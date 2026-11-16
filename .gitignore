@@ -313,3 +313,5 @@ pyrightconfig.json
 
 # JetBrains
 *.idea
+
+/_backend_archive/
