@@ -60,8 +60,8 @@ Once the backend is running, the interactive Swagger documentation is available 
 - [x] Define and analyze subject domain
 - [x] Design database schema
 - [x] Devise scoring methodology
-- [ ] Connect SQLite as the storage layer
-- [ ] Set up ORM and validation via SQLModel
+- [x] Set up PostgreSQL via Docker Compose
+- [x] Implement database models and constraints with SQLAlchemy
 - [ ] Write a CLI script for database management (`setup`, `clear`, `refresh`)
 - [ ] Implement the `/subjects` endpoint with filtering by district and subject
 - [ ] Implement the `/subjects/{subject_slug}` endpoint
