@@ -10,78 +10,35 @@
 
 ## 🛠️ Tech Stack
 
-### Backend
+![Python](https://img.shields.io/badge/python-%233670A0.svg?style=for-the-badge&logo=python&logoColor=ffdd54)
+![SQLAlchemy](https://img.shields.io/badge/sqlalchemy-%23D71F00.svg?style=for-the-badge&logo=sqlalchemy&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/css-%23663399.svg?style=for-the-badge&logo=css&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
-![Python](https://img.shields.io/badge/language-python-%233670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![FastAPI](https://img.shields.io/badge/framework-fastapi-%23009688.svg?style=for-the-badge&logo=fastapi&logoColor=white)
-![SQLite](https://img.shields.io/badge/database-sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
-![SQLModel](https://img.shields.io/badge/orm_%26_validation-sql_model-7e56c2?style=for-the-badge)
-![Pandas](https://img.shields.io/badge/data_engineering-Pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/data_processing-scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![uv](https://img.shields.io/badge/PACKAGE_MANAGER-uv-%23DE5FE9.svg?style=for-the-badge&logo=uv&logoColor=white)
+## 📚 Documentation
 
-### Frontend
+> Note: All documentation files are written in **Russian**.
 
-![JavaScript](https://img.shields.io/badge/language-javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![HTML5](https://img.shields.io/badge/markup-html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/styling-css-%23663399.svg?style=for-the-badge&logo=css&logoColor=white)
-
-## 📊 Data sources
-
-1. **Names of subjects**: Constitution of the Russian Federation, Article 65.
-2. **Names of federal districts and their composition**: Decree of the President of the Russian Federation No. 849 of May 13, 2000 "On the Plenipotentiary Representative of the President of the Russian Federation in a Federal District".
-3. **IT specialist salaries:** [IT Specialist Salaries across all IT specializations — Habr Career](https://career.habr.com/salaries)
-
-## 🗄️ Database commands
-
-> All commands below must be run from `/backend` directory.
-
-> If you don't have `uv` installed, follow the [official installation guide](https://docs.astral.sh/uv/getting-started/installation/).
-
-| Command | Description |
-| ------- | ----------- |
-| `uv run python -m scripts.db_cli setup` | Create database and table and load data |
-| `uv run python -m scripts.db_cli clear` | Clear table data |
-| `uv run python -m scripts.db_cli refresh` | Refresh table data |
-
-## 🔌 API Endpoints
-
-Once the backend is running, the interactive Swagger documentation is available at `http://localhost:8000/docs`.
-
-| Method | Endpoint | Description | Query Parameters | Validation & Constraints |
-| :----- | :------- | :---------- | :--------------- | :----------------------- |
-| `GET` | `/subjects` | Returns a list of subjects filtered by federal district or specific subject, or all subjects of Russia. | • `grade` (Grade, **required**)<br>• `district` (District, optional)<br>• `subject` (Subject, optional) | **Simultaneous filtering is blocked.** Providing both `district` and `subject` at the same time will trigger a validation error. |
-| `GET` | `/subjects/compare` | Returns metrics for two specific subjects side-by-side for comparison. | • `grade` (Grade, **required**)<br>• `first_subject` (Subject, **required**)<br>• `second_subject` (Subject, **required**) | **Comparing a subject to itself is blocked.** `first_subject` and `second_subject` must be distinct, otherwise a validation error is thrown. |
+* [Project Specification](docs/spec.md)
+* [Scoring Methodology](docs/scoring-methodology.md)
+* [Glossary](docs/GLOSSARY.md)
 
 ## 🗺️ Roadmap
 
-### Backend
-
-- [x] Define and analyze subject domain
-- [x] Design database schema
-- [x] Devise scoring methodology
-- [x] Set up PostgreSQL via Docker Compose
-- [x] Implement database models and constraints with SQLAlchemy
-- [ ] Write a CLI script for database management (`setup`, `clear`, `refresh`)
-- [ ] Implement the `/subjects` endpoint with filtering by district and subject
-- [ ] Implement the `/subjects/{subject_slug}` endpoint
-- [ ] Implement the `/subjects/compare` endpoint for comparing two subjects
-- [ ] Implement the `/subjects/rating` endpoint
-
-### Frontend
-
-- [x] Make IT-Compass homepage HTML document
-- [x] Design IT-Compass homepage using CSS
-- [x] Create IT-Compass map page HTML document
-- [x] Add side panel to map page HTML
-- [x] Design map page side panel using CSS
-- [ ] Integrate interactive map of Russia using geojson d3 javascript library
-- [ ] Design interactive map of Russia using CSS
-- [ ] Setup interaction with map using javascript
-- [ ] Create region info page HTML document
-- [ ] Design region info page using CSS
-- [ ] Implement region comparsion page HTML document
-- [ ] Design region comparsion page using CSS
+* [x] Define and analyze subject domain
+* [x] Design database schema
+* [x] Devise scoring methodology
+* [x] Set up PostgreSQL via Docker Compose
+* [x] Implement database models and constraints with SQLAlchemy
+* [ ] Configure database migrations with Alembic
+* [ ] Seed reference tables (regions, metrics, grades, and weights)
+* [ ] Write a CLI script for database management (`setup`, `clear`, `refresh`)
+* [ ] Implement the `/subjects` endpoint with filtering by district and subject
+* [ ] Implement the `/subjects/{subject_slug}` endpoint
+* [ ] Implement the `/subjects/compare` endpoint for comparing two subjects
+* [ ] Implement the `/subjects/rating` endpoint
 
 ## 🪪 License
 
