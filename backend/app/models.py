@@ -33,6 +33,7 @@ class Region(Base):
     id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     name: Mapped[str] = mapped_column(Text, unique=True)
     slug: Mapped[str] = mapped_column(Text, unique=True)
+    population: Mapped[int] = mapped_column()
 
 class Metric(Base):
     __tablename__ = 'metrics'
@@ -76,7 +77,7 @@ class NormalizedMetricRecord(Base):
 
     __table_args__ = (
         CheckConstraint(
-            'normalized_score >= 1.0 AND normalized_score <= 100.0',
+            'normalized_score >= 0.0 AND normalized_score <= 100.0',
             name='ck_normalized_score_range',
         ),
         UniqueConstraint(

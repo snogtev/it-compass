@@ -68,6 +68,7 @@
 | `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
 | `name` | text | NOT NULL, UNIQUE | Название региона |
 | `slug` | text | NOT NULL, UNIQUE | Человекопонятный URL |
+| `population` | integer | NOT NULL | Население |
 
 ##### Метрики (metrics)
 
@@ -107,7 +108,7 @@
 | `metric_id` | integer | FK, NOT NULL | ID метрики из сущности `metrics` |
 | `grade_id` | integer | FK, NULL | ID грейда из сущности `grades` |
 | `value` | numeric(10,1) | NOT NULL | Валидированное числовое значение |
-| `normalized_score` | numeric(4,1) | NOT NULL, CHECK (normalized_score >= 1.0 AND normalized_score <= 100.0) | Нормализованная запись метрики |
+| `normalized_score` | numeric(4,1) | NOT NULL, CHECK (normalized_score >= 0.0 AND normalized_score <= 100.0) | Нормализованная запись метрики |
 
 * **Ограничение таблицы:** UNIQUE (`region_id`, `metric_id`, `grade_id`).
 
@@ -151,6 +152,7 @@ erDiagram
         integer id PK "IDENTITY"
         text name "NOT NULL, UNIQUE"
         text slug "NOT NULL, UNIQUE"
+        integer population "NOT NULL"
     }
 
     metrics {
