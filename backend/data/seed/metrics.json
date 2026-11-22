@@ -1,0 +1,86 @@
+[
+    {
+      "name": "Медианная зарплата ИТ-специалиста",
+      "slug": "median-salary",
+      "is_graded": true,
+      "direction": "forward"
+    },
+    {
+      "name": "Стоимость фиксированного набора потребительских товаров и услуг",
+      "slug": "consumer-basket",
+      "is_graded": false,
+      "direction": "backward"
+    },
+    {
+      "name": "Медианная цена 1 м² жилья на вторичном рынке",
+      "slug": "housing-price",
+      "is_graded": false,
+      "direction": "backward"
+    },
+    {
+      "name": "Соотношение активных резюме к активным вакансиям в ИТ-профобласти",
+      "slug": "cv-vacancy-ratio",
+      "is_graded": false,
+      "direction": "backward"
+    },
+    {
+      "name": "Количество ИТ-вакансий на 100 тыс. населения",
+      "slug": "it-vacancies-per-100k",
+      "is_graded": true,
+      "direction": "forward"
+    },
+    {
+      "name": "Количество аккредитованных ИТ-компаний на 100 тыс. населения",
+      "slug": "it-companies-per-100k",
+      "is_graded": false,
+      "direction": "forward"
+    },
+    {
+      "name": "Количество вузов с ИТ-направлениями на 100 тыс. населения",
+      "slug": "it-universities-per-100k",
+      "is_graded": false,
+      "direction": "forward"
+    },
+    {
+      "name": "Количество ссузов с ИТ-направлениями на 100 тыс. населения",
+      "slug": "it-colleges-per-100k",
+      "is_graded": false,
+      "direction": "forward"
+    },
+    {
+      "name": "Доля абонентов домашнего интернет со скоростью 100 Мбит/с",
+      "slug": "broadband-100m",
+      "is_graded": false,
+      "direction": "forward"
+    },
+    {
+      "name": "Количество коворкингов на 100 тыс. населения",
+      "slug": "coworkings-per-100k",
+      "is_graded": false,
+      "direction": "forward"
+    },
+    {
+      "name": "Концентрация PM2.5",
+      "slug": "pm25",
+      "is_graded": false,
+      "direction": "backward"
+    },
+    {
+      "name": "Количество солнечных дней в году",
+      "slug": "sunny-days",
+      "is_graded": false,
+      "direction": "forward"
+    },
+    {
+      "name": "Количество общеуголовных преступлений на 10 тыс. населения",
+      "slug": "crime-rate",
+      "is_graded": false,
+      "direction": "backward"
+    },
+    {
+      "name": "Коэффициент миграционного прироста на 10 тыс. населения",
+      "slug": "migration-growth",
+      "is_graded": false,
+      "direction": "forward"
+    }
+]

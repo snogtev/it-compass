@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Абитуриент",
+    "slug": "applicant"
+  },
+  {
+    "name": "Стажёр",
+    "slug": "intern"
+  },
+  {
+    "name": "Junior",
+    "slug": "junior"
+  },
+  {
+    "name": "Middle",
+    "slug": "middle"
+  },
+  {
+    "name": "Senior",
+    "slug": "senior"
+  }
+]

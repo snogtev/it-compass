@@ -1,0 +1,97 @@
+[
+  {
+    "grade": "applicant",
+    "weights": {
+      "median-salary": 0.05,
+      "consumer-basket": 0.05,
+      "housing-price": 0.05,
+      "cv-vacancy-ratio": 0.05,
+      "it-vacancies-per-100k": 0.05,
+      "it-companies-per-100k": 0.05,
+      "it-universities-per-100k": 0.13,
+      "it-colleges-per-100k": 0.13,
+      "broadband-100m": 0.08,
+      "coworkings-per-100k": 0.08,
+      "pm25": 0.05,
+      "sunny-days": 0.05,
+      "crime-rate": 0.09,
+      "migration-growth": 0.09
+    }
+  },
+  {
+    "grade": "intern",
+    "weights": {
+      "median-salary": 0.06,
+      "consumer-basket": 0.06,
+      "housing-price": 0.06,
+      "cv-vacancy-ratio": 0.10,
+      "it-vacancies-per-100k": 0.10,
+      "it-companies-per-100k": 0.10,
+      "it-universities-per-100k": 0.08,
+      "it-colleges-per-100k": 0.08,
+      "broadband-100m": 0.06,
+      "coworkings-per-100k": 0.06,
+      "pm25": 0.04,
+      "sunny-days": 0.04,
+      "crime-rate": 0.08,
+      "migration-growth": 0.08
+    }
+  },
+  {
+    "grade": "junior",
+    "weights": {
+      "median-salary": 0.07,
+      "consumer-basket": 0.07,
+      "housing-price": 0.07,
+      "cv-vacancy-ratio": 0.09,
+      "it-vacancies-per-100k": 0.09,
+      "it-companies-per-100k": 0.09,
+      "it-universities-per-100k": 0.07,
+      "it-colleges-per-100k": 0.07,
+      "broadband-100m": 0.07,
+      "coworkings-per-100k": 0.07,
+      "pm25": 0.05,
+      "sunny-days": 0.05,
+      "crime-rate": 0.07,
+      "migration-growth": 0.07
+    }
+  },
+  {
+    "grade": "middle",
+    "weights": {
+      "median-salary": 0.08,
+      "consumer-basket": 0.08,
+      "housing-price": 0.08,
+      "cv-vacancy-ratio": 0.08,
+      "it-vacancies-per-100k": 0.08,
+      "it-companies-per-100k": 0.08,
+      "it-universities-per-100k": 0.04,
+      "it-colleges-per-100k": 0.04,
+      "broadband-100m": 0.08,
+      "coworkings-per-100k": 0.08,
+      "pm25": 0.06,
+      "sunny-days": 0.06,
+      "crime-rate": 0.08,
+      "migration-growth": 0.08
+    }
+  },
+  {
+    "grade": "senior",
+    "weights": {
+      "median-salary": 0.08,
+      "consumer-basket": 0.08,
+      "housing-price": 0.08,
+      "cv-vacancy-ratio": 0.06,
+      "it-vacancies-per-100k": 0.06,
+      "it-companies-per-100k": 0.06,
+      "it-universities-per-100k": 0.04,
+      "it-colleges-per-100k": 0.04,
+      "broadband-100m": 0.09,
+      "coworkings-per-100k": 0.09,
+      "pm25": 0.07,
+      "sunny-days": 0.07,
+      "crime-rate": 0.09,
+      "migration-growth": 0.09
+    }
+  }
+]
