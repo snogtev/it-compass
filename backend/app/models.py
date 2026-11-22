@@ -40,6 +40,7 @@ class Metric(Base):
 
     id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     name: Mapped[str] = mapped_column(Text, unique=True)
+    slug: Mapped[str] = mapped_column(Text, unique=True)
     is_graded: Mapped[bool]
     direction: Mapped[Direction] = mapped_column()
 
@@ -50,6 +51,27 @@ class Grade(Base):
     id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     name: Mapped[str] = mapped_column(Text, unique=True)
     slug: Mapped[str] = mapped_column(Text, unique=True)
+
+
+class Weight(Base):
+    __tablename__ = 'weights'
+
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
+    grade_id: Mapped[int] = mapped_column(ForeignKey('grades.id'))
+    metric_id: Mapped[int] = mapped_column(ForeignKey('metrics.id'))
+    weight: Mapped[Decimal] = mapped_column(Numeric(3, 2))
+
+    __table_args__ = (
+        CheckConstraint(
+            'weight >= 0.00 AND weight <= 1.00',
+            name='ck_weight_range',
+        ),
+        UniqueConstraint(
+            'grade_id',
+            'metric_id',
+            name='uq_weight_grade_metric',
+        ),
+    )
 
 # ============================================================================
 # Операционные сущности
@@ -105,30 +127,6 @@ class RegionRating(Base):
             'region_id',
             'grade_id',
             name='uq_rating_region_grade',
-        ),
-    )
-
-# ============================================================================
-# Конфигурационные сущности
-# ============================================================================
-
-class Weight(Base):
-    __tablename__ = 'weights'
-
-    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
-    grade_id: Mapped[int] = mapped_column(ForeignKey('grades.id'))
-    metric_id: Mapped[int] = mapped_column(ForeignKey('metrics.id'))
-    weight: Mapped[Decimal] = mapped_column(Numeric(3, 2))
-
-    __table_args__ = (
-        CheckConstraint(
-            'weight >= 0.00 AND weight <= 1.00',
-            name='ck_weight_range',
-        ),
-        UniqueConstraint(
-            'grade_id',
-            'metric_id',
-            name='uq_weight_grade_metric',
         ),
     )
 

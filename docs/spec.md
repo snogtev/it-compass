@@ -75,6 +75,7 @@
 | Поле | Тип данных | Ограничения | Описание |
 | :--- | :--------- | :---------- | :------- |
 | `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
+| `slug` | text | NOT NULL, UNIQUE | Человекопонятный URL |
 | `name` | text | NOT NULL, UNIQUE | Название метрики |
 | `is_graded` | boolean | NOT NULL | Разделяется ли метрика по грейдам |
 | `direction` | direction (ENUM) | NOT NULL | Направление метрики (`forward`, `backward`) |
@@ -86,6 +87,17 @@
 | `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
 | `name` | text | NOT NULL, UNIQUE | Название грейда |
 | `slug` | text | NOT NULL, UNIQUE | Человекопонятный URL |
+
+##### Веса (weights)
+
+| Поле | Тип данных | Ограничения | Описание |
+| :--- | :--------- | :---------- | :--- |
+| `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
+| `grade_id` | integer | FK, NOT NULL | ID грейда из сущности `grades` |
+| `metric_id` | integer | FK, NOT NULL | ID метрики из сущности `metrics` |
+| `weight` | numeric(3,2) | NOT NULL, CHECK (weight >= 0.00 AND weight <= 1.00) | Вес метрики |
+
+* **Ограничение таблицы:** UNIQUE (`grade_id`, `metric_id`).
 
 #### Операционные сущности
 
@@ -123,19 +135,6 @@
 
 * **Ограничение таблицы:** UNIQUE (`region_id`, `grade_id`).
 
-#### Конфигурационные сущности
-
-##### Веса (weights)
-
-| Поле | Тип данных | Ограничения | Описание |
-| :--- | :--------- | :---------- | :--- |
-| `id` | integer | PK, IDENTITY | Первичный ключ, генерируется автоматически |
-| `grade_id` | integer | FK, NOT NULL | ID грейда из сущности `grades` |
-| `metric_id` | integer | FK, NOT NULL | ID метрики из сущности `metrics` |
-| `weight` | numeric(3,2) | NOT NULL, CHECK (weight >= 0.00 AND weight <= 1.00) | Вес метрики |
-
-* **Ограничение таблицы:** UNIQUE (`grade_id`, `metric_id`).
-
 ### ER-диаграмма
 
 ```mermaid
@@ -158,6 +157,7 @@ erDiagram
     metrics {
         integer id PK "IDENTITY"
         text name "NOT NULL, UNIQUE"
+        text slug "NOT NULL, UNIQUE"
         boolean is_graded "NOT NULL"
         direction direction "NOT NULL"
     }
@@ -182,7 +182,7 @@ erDiagram
         integer metric_id FK "NOT NULL"
         integer grade_id FK "NULL"
         numeric_10_1 value "NOT NULL"
-        numeric_4_1 normalized_score "NOT NULL, CHECK 1.0..100.0"
+        numeric_4_1 normalized_score "NOT NULL, CHECK 0.0..100.0"
     }
 
     region_ratings {
