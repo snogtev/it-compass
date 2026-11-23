@@ -1,4 +1,3 @@
-import asyncio
 import enum
 from decimal import Decimal
 
@@ -10,23 +9,16 @@ from sqlalchemy import (
     Text,
     UniqueConstraint,
 )
-from sqlalchemy.ext.asyncio import create_async_engine
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 
-DATABASE_URL = 'postgresql+asyncpg://user:password@localhost:5432/database'
+from app.database import Base
 
 
 class Direction(str, enum.Enum):
     forward = 'forward'
     backward = 'backward'
 
-class Base(DeclarativeBase):
-    pass
-
-# ============================================================================
-# Справочные сущности
-# ============================================================================
-
+# ! Справочные сущности
 class Region(Base):
     __tablename__ = 'regions'
 
@@ -73,11 +65,7 @@ class Weight(Base):
         ),
     )
 
-# ============================================================================
-# Операционные сущности
-# ============================================================================
-
-
+# ! Операционные сущности
 class RawMetricRecord(Base):
     __tablename__ = 'raw_metric_records'
 
@@ -129,14 +117,3 @@ class RegionRating(Base):
             name='uq_rating_region_grade',
         ),
     )
-
-async def main():
-    engine = create_async_engine(DATABASE_URL, echo=False)
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
-
-    await engine.dispose()
-    print('Успех')
-
-if __name__ == '__main__':
-    asyncio.run(main())
