@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>🔥 IT-COMPASS 🔥 НЕЙРО-КОМПАС №1!!!</title>
+<style>
+:root{--text:#1a0033;--card:#fffb7a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--text:#1a0033;--card:#fffb7a}}
+:root[data-theme="dark"]{--text:#1a0033;--card:#fffb7a}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Comic Sans MS","Comic Neue",cursive,sans-serif;color:var(--text);line-height:1.4;font-size:18px;overflow-x:hidden;
+  background:linear-gradient(120deg,#ff00cc,#ffee00,#00ffd5,#7a00ff,#ff3b00,#ff00cc);background-size:600% 600%;animation:bg 8s linear infinite}
+@keyframes bg{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+.wrap{width:94%;max-width:980px;margin:0 auto}
+.rainbow{background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta,red);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:bg 2s linear infinite}
+
+/* бегущая строка */
+.ticker{background:#000;color:#0f0;overflow:hidden;white-space:nowrap;padding:6px 0;font-family:"Courier New",monospace;border-bottom:4px dashed red}
+.ticker div{display:inline-block;padding-left:100%;animation:run 14s linear infinite}
+@keyframes run{to{transform:translateX(-100%)}}
+.stripe{background:repeating-linear-gradient(45deg,#000 0 18px,#ffe600 18px 36px);color:#000;text-align:center;font-weight:bold;padding:8px;font-size:16px}
+.stripe span{background:#ffe600;padding:2px 10px}
+
+/* заголовок */
+.hero{text-align:center;padding:30px 0}
+.blink{animation:blink 0.8s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+h1{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(44px,11vw,110px);line-height:1;text-shadow:4px 4px 0 #000,-2px -2px 0 #fff;animation:shake .5s infinite;display:inline-block}
+@keyframes shake{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg) scale(1.04)}}
+.lead{background:#000;color:#fff;display:inline-block;padding:10px 18px;margin:18px 0;transform:rotate(-1.5deg);border:4px solid #fff;font-size:20px}
+.counter{background:#ff0000;color:#fff;display:inline-block;padding:8px 16px;border:4px double #ffe600;font-weight:bold;margin:6px}
+.timer{font-family:"Courier New",monospace;font-size:28px;background:#000;color:#f00;display:inline-block;padding:4px 14px;border:3px solid #f00}
+
+/* кнопки */
+h2{font-family:Impact,sans-serif;font-size:clamp(30px,6vw,52px);text-align:center;color:#fff;text-shadow:3px 3px 0 #000;margin:30px 0 14px;letter-spacing:1px}
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;padding:10px}
+.lvl{font:inherit;cursor:pointer;font-weight:bold;font-size:20px;color:#fff;padding:18px 10px;border:5px outset #fff;border-radius:6px;text-shadow:2px 2px 0 #000;transition:transform .15s}
+.lvl .ico{display:block;font-size:44px}
+.lvl small{display:block;font-size:13px;font-weight:normal}
+.lvl:nth-child(1){background:#ff0055;transform:rotate(-3deg)}
+.lvl:nth-child(2){background:#00a2ff;transform:rotate(2deg)}
+.lvl:nth-child(3){background:#12c200;transform:rotate(-2deg)}
+.lvl:nth-child(4){background:#ff8800;transform:rotate(3deg)}
+.lvl:nth-child(5){background:#8000ff;transform:rotate(-1deg)}
+.lvl:hover{transform:scale(1.18) rotate(8deg);z-index:2;border-style:inset}
+.lvl[aria-pressed="true"]{outline:6px dotted #ffe600}
+
+/* результат */
+.result{background:var(--card);border:6px ridge #f0f;padding:22px;margin:22px 0;min-height:110px;box-shadow:12px 12px 0 #000}
+.result h3{font-family:Impact,sans-serif;font-size:30px;color:#d00}
+.load{font-family:"Courier New",monospace;font-weight:bold}
+.bar{height:26px;background:#000;border:3px solid #000;margin:10px 0}
+.bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,#0f0 0 10px,#0a0 10px 20px);transition:width .5s}
+.reg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px;margin-top:8px;border:3px dashed #000}
+.reg.ok{background:#8bff8b}.reg.no{background:#ff8b8b}
+.reg .tag{font-weight:bold;text-decoration:underline wavy}
+.warn{margin-top:14px;background:#000;color:#ff0;padding:8px;font-weight:bold;animation:blink 1s steps(2) infinite}
+
+/* блоки */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:10px 0}
+.box{background:#fff;border:5px solid #000;padding:16px;box-shadow:8px 8px 0 #ff00aa}
+.box:nth-child(even){transform:rotate(1.5deg);background:#e0fffb}
+.box:nth-child(odd){transform:rotate(-1.5deg)}
+.box h3{font-family:Impact,sans-serif;font-size:24px}
+.ad{background:#ff0;border:5px dashed #f00;text-align:center;padding:26px 10px;margin:24px 0;font-weight:bold;font-size:22px}
+.badge{display:inline-block;background:#fff;border:3px solid #000;border-radius:50%;width:110px;height:110px;line-height:1.1;padding-top:26px;font-weight:bold;font-size:14px;transform:rotate(12deg);margin:8px}
+footer{background:#000;color:#0f0;text-align:center;padding:24px 10px 90px;margin-top:30px;font-family:"Courier New",monospace;font-size:14px}
+
+/* плавающие смайлы */
+.fl{position:fixed;font-size:40px;pointer-events:none;z-index:1;animation:fly 6s ease-in-out infinite alternate}
+@keyframes fly{to{transform:translate(40px,-60px) rotate(30deg)}}
+
+/* чат-бот */
+.chat{position:fixed;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;max-width:260px;background:#fff;border:4px solid #000;padding:10px 12px;font-size:15px;cursor:pointer;box-shadow:6px 6px 0 #f0f}
+.chat b{color:#d00}
+
+/* всплывашки */
+.cookie{position:fixed;left:10px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;max-width:260px;background:#222;color:#fff;border:3px solid #ffe600;padding:10px;font-size:14px;font-family:Arial,sans-serif}
+.cookie button{margin-top:6px;font:inherit;padding:4px 10px;cursor:pointer}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:50;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.show{display:flex}
+.pop{background:#ffe600;border:8px double #f00;padding:26px;max-width:420px;text-align:center;position:relative;animation:shake .4s infinite}
+.pop h3{font-family:Impact,sans-serif;font-size:34px;color:#f00}
+.pop .x{position:absolute;right:4px;top:0;font-size:11px;background:none;border:0;cursor:pointer;color:#777}
+.pop .big{display:block;width:100%;margin-top:12px;font:inherit;font-weight:bold;font-size:20px;background:#0c0;color:#fff;border:4px outset #fff;padding:12px;cursor:pointer}
+.pop .no{display:block;margin:10px auto 0;font-size:10px;color:#555;background:none;border:0;cursor:pointer;text-decoration:underline}
+@media (prefers-reduced-motion:reduce){body,.rainbow,h1,.fl,.pop,.warn,.blink,.ticker div{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="ticker"><div>🔥 СРОЧНО!!! ИИ ВЫБРАЛ ТЕБЕ РЕГИОН!!! 🔥 ПОКА ТЫ ЧИТАЕШЬ ЭТО, 3 РЕГИОНА ПЕРЕДУМАЛИ!!! 🔥 КВАНТОВАЯ КАРЬЕРА ОТ НЕЙРОСЕТИ №1 В МИРЕ (В НАШЕМ ПОДЪЕЗДЕ) 🔥</div></div>
+<div class="stripe">🚧 САЙТ ВЕЧНО В РАЗРАБОТКЕ 🚧 <span>ЛУЧШИЙ САЙТ 2007 ГОДА</span> 🚧</div>
+
+<span class="fl" style="left:4%;top:20%">🤖</span><span class="fl" style="right:5%;top:35%;animation-delay:1s">🧭</span>
+<span class="fl" style="left:8%;top:65%;animation-delay:2s">🚀</span><span class="fl" style="right:8%;top:75%;animation-delay:3s">💸</span>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="blink" style="font-size:26px;font-weight:bold;color:#fff;text-shadow:2px 2px #000">⭐ NEW ⭐ AI ⭐ GPT-∞ ⭐</div>
+    <h1><span class="rainbow">IT-COMPASS</span></h1>
+    <br><div class="lead">ПЕРВЫЙ В МИРЕ НЕЙРО-КВАНТОВО-БЛОКЧЕЙН КОМПАС ДЛЯ ТВОЕЙ КАРЬЕРЫ!!!</div>
+    <br><div class="counter">👀 ТЫ НАШ 1 000 000-Й ПОСЕТИТЕЛЬ!!!</div>
+    <br><div>Скидка на карьеру закончится через: <span class="timer" id="timer">00:14:59</span></div>
+    <div style="margin-top:14px"><span class="badge">100% ИИ</span><span class="badge" style="transform:rotate(-10deg);background:#f0f">№1 В МИРЕ</span><span class="badge" style="background:#0ff">БЕЗ ВИРУСОВ*</span></div>
+  </div>
+
+  <h2>👇 ВЫБЕРИ СВОЙ УРОВЕНЬ 👇</h2>
+  <div class="levels" id="levels">
+    <button class="lvl" data-level="abit" aria-pressed="false"><span class="ico">🎒</span>АБИТУРИЕНТ<small>«Я ещё не знаю, что такое Python»</small></button>
+    <button class="lvl" data-level="intern" aria-pressed="false"><span class="ico">☕</span>СТАЖЁР<small>«Я работаю за печеньки»</small></button>
+    <button class="lvl" data-level="junior" aria-pressed="false"><span class="ico">🌱</span>JUNIOR<small>«Гуглю быстрее всех»</small></button>
+    <button class="lvl" data-level="middle" aria-pressed="false"><span class="ico">⚙️</span>MIDDLE<small>«Чиню то, что сломал Junior»</small></button>
+    <button class="lvl" data-level="senior" aria-pressed="false"><span class="ico">🧙</span>SENIOR<small>«Я всё это уже ломал»</small></button>
+  </div>
+
+  <div class="result" id="result" aria-live="polite">👆 ЖМИ НА КНОПКУ, ПОКА СКИДКА НЕ ЗАКОНЧИЛАСЬ!!! 👆</div>
+
+  <div class="ad">📢 ЗДЕСЬ МОЖЕТ БЫТЬ ВАША РЕКЛАМА 📢<br><small>(не может, у нас никто не покупает)</small></div>
+
+  <h2>🧠 КАК ЭТО РАБОТАЕТ 🧠</h2>
+  <div class="cards">
+    <div class="box"><h3>1. ЖМЁШЬ</h3><p>Наш ИИ мгновенно чувствует твою энергию. Через кнопку.</p></div>
+    <div class="box"><h3>2. ДУМАЕМ</h3><p>Миллиард нейронов крутят рулетку. Это наука.</p></div>
+    <div class="box"><h3>3. ПРОФИТ</h3><p>Получаешь вердикт и никаких гарантий!!!</p></div>
+  </div>
+
+  <h2>💬 ОТЗЫВЫ 💬</h2>
+  <div class="cards">
+    <div class="box"><p>«Компас сказал: Москва. Я поехал. Теперь я в Москве и мне дорого!!!»</p><b>— Нейро-Олег, 5★★★★★</b></div>
+    <div class="box"><p>«Спасибо ИИ! Я наконец понял, что мне не подходит Луна.»</p><b>— Анонимный Senior, 5★★★★★</b></div>
+    <div class="box"><p>«Отличный сайт. Я не читал, но нажал кнопку.»</p><b>— Реальный человек, 5★★★★★</b></div>
+  </div>
+</div>
+
+<footer>
+  © 2026 ДЕРГАЧЁВ И ПАРТНЁРЫ™ ® © ВСЕ ПРАВА ЗАЩИЩЕНЫ (НАВЕРНОЕ)<br>
+  *БЕЗ ВИРУСОВ — ЭТО НЕ ТОЧНО. ВСЕ ДАННЫЕ ВЫДУМАНЫ НЕЙРОСЕТЬЮ, НЕ ЯВЛЯЮТСЯ КАРЬЕРНОЙ КОНСУЛЬТАЦИЕЙ И ВООБЩЕ НИЧЕМ НЕ ЯВЛЯЮТСЯ.
+</footer>
+
+<div class="chat" id="chat"><b>🤖 Нейро-Олег:</b> <span id="chatText">Привет! Я ИИ-помощник. Я тебя не понимаю, но очень рад!</span></div>
+<div class="cookie" id="cookie">🍪 Мы используем печеньки и твои мечты.<br><button id="cookieBtn">Отдать всё</button></div>
+
+<div class="modal" id="modal">
+  <div class="pop">
+    <button class="x" id="closeX">закрыть</button>
+    <h3>СТОЙ!!! 🛑</h3>
+    <p>Подпишись на НЕЙРОРАССЫЛКУ и получи скидку 99% на воздух!</p>
+    <button class="big" id="subBtn">ХОЧУ СКИДКУ!!!</button>
+    <button class="no" id="noBtn">нет, я не хочу карьеру</button>
+  </div>
+</div>
+
+<script>
+// Данные: [регион, подходит?, комментарий]
+var data = {
+  abit: ["Абитуриент", [
+    ["Москва", true, "Вузов много, а общежитие одно (и то занято)."],
+    ["Санкт-Петербург", true, "Дождь = идеальные условия для учёбы."],
+    ["Новосибирск", true, "Холодно, зато мозг не перегреется."],
+    ["Дача у бабушки", false, "Wi-Fi ловит только на яблоне."],
+    ["Остров Пасхи", false, "Статуи плохие наставники."]]],
+  intern: ["Стажёр", [
+    ["Москва", true, "Зарплата — опыт и бесплатный кофе."],
+    ["Казань", true, "Чебуреки решают."],
+    ["Екатеринбург", true, "Ментор есть, но он в отпуске."],
+    ["Сочи", false, "Пальмы отвлекают от тестов."],
+    ["Подвал соседа", false, "Там живёт Senior. Он кусается."]]],
+  junior: ["Junior", [
+    ["Москва", true, "Вакансий вагон, откликов ещё больше."],
+    ["Новосибирск", true, "Академгородок: умные люди и сугробы."],
+    ["Краснодар", true, "Тепло, и баги кажутся мельче."],
+    ["Горное село", false, "Сигнал есть только у барана."],
+    ["Антарктида", false, "Пингвины не делают code review."]]],
+  middle: ["Middle", [
+    ["Москва", true, "Деньги есть. Времени нет."],
+    ["Санкт-Петербург", true, "Мосты разведут, а дедлайн не сдвинется."],
+    ["Любой город с кофе", true, "Middle работает на кофе. Это факт."],
+    ["Место без электричества", false, "Ноутбук живёт 4 часа."],
+    ["Луна", false, "Пинг 1,3 секунды. Никаких стендапов."]]],
+  senior: ["Senior", [
+    ["Москва", true, "Любят слово «архитектура» и платят за него."],
+    ["Любое место с тишиной", true, "Senior хочет дверь и тишину."],
+    ["Берег озера", true, "Баги лучше фиксятся на закате."],
+    ["Open space", false, "Это не работа, это концерт."],
+    ["Место без Slack", false, "С кем тогда жаловаться?"]]]
+};
+var steps = ["Скачиваем интернет... 12%", "Спрашиваем у бабушки... 47%", "Подкручиваем нейроны... 99%", "Ой, всё сломалось... 3%", "Перезагружаем ИИ... 100%!!!"];
+var box = document.getElementById("result");
+var buttons = document.querySelectorAll(".lvl");
+var timerId = null;
+
+buttons.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+    btn.setAttribute("aria-pressed", "true");
+    clearInterval(timerId);
+    var i = 0;
+    box.innerHTML = '<div class="load" id="ld">🤖 ЗАГРУЗКА НЕЙРОСЕТИ...</div><div class="bar"><i id="bar"></i></div>';
+    timerId = setInterval(function () {
+      if (i < steps.length) {
+        document.getElementById("ld").textContent = "🤖 " + steps[i];
+        document.getElementById("bar").style.width = ((i + 1) * 20) + "%";
+        i++;
+      } else {
+        clearInterval(timerId);
+        showResult(btn.dataset.level);
+      }
+    }, 450);
+  });
+});
+
+function showResult(level) {
+  var info = data[level];
+  var html = "<h3>🎉 ВЕРДИКТ ДЛЯ: " + info[0].toUpperCase() + " 🎉</h3>";
+  html += "<p>Индекс пригодности: <b>" + (Math.floor(Math.random() * 40) + 60) + "%</b> (каждый раз новый, это ИИ)</p>";
+  info[1].forEach(function (r) {
+    var cls = r[1] ? "ok" : "no";
+    var tag = r[1] ? "✅ ПОДХОДИТ!!!" : "❌ НЕ ПОДХОДИТ!!!";
+    html += '<div class="reg ' + cls + '"><b>' + r[0] + '</b><span class="tag">' + tag + "</span><span>" + r[2] + "</span></div>";
+  });
+  html += '<div class="warn">⚠️ ВНИМАНИЕ: нейросеть может передумать в любой момент ⚠️</div>';
+  box.innerHTML = html;
+}
+
+// Обратный отсчёт (всегда начинается заново)
+var left = 14 * 60 + 59;
+setInterval(function () {
+  left = left > 0 ? left - 1 : 14 * 60 + 59;
+  var m = String(Math.floor(left / 60)).padStart(2, "0");
+  var s = String(left % 60).padStart(2, "0");
+  document.getElementById("timer").textContent = "00:" + m + ":" + s;
+}, 1000);
+
+// Чат-бот
+var phrases = ["Ты уверен? Я — нет.", "Я нейросеть. Это всё, что я знаю.", "Как дела? Не отвечай, я всё равно не слушаю.", "Ой, я случайно удалил базу регионов. Шучу. Или нет."];
+var p = 0;
+document.getElementById("chat").addEventListener("click", function () {
+  document.getElementById("chatText").textContent = phrases[p % phrases.length];
+  p++;
+});
+
+// Печеньки и всплывающее окно
+document.getElementById("cookieBtn").addEventListener("click", function () {
+  document.getElementById("cookie").style.display = "none";
+});
+var modal = document.getElementById("modal");
+setTimeout(function () { modal.classList.add("show"); }, 4000);
+["closeX", "subBtn", "noBtn"].forEach(function (id) {
+  document.getElementById(id).addEventListener("click", function () { modal.classList.remove("show"); });
+});
+</script>
+</body>
+</html>
